@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trap
+  - Void
+  - RightTile
+  - LeftTile
+  - BasicTile
+  - SlowTile
   layers:
   - Default
   - TransparentFX
