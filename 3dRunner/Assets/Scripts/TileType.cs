@@ -10,20 +10,24 @@ public class TileType : MonoBehaviour
         playerMovement.tile = 3;
         playerMovement.giro = false;
         playerMovement.speed = 4.0f;
-        switch (other.gameObject.tag) 
+        switch (other.gameObject.tag)
         {
-        case "RightTile": playerMovement.tile = 1;
+            case "RightTile": playerMovement.tile = 1;
                 print("entra1");
                 break;
-        case "LeftTile":  playerMovement.tile = 2;
+            case "LeftTile": playerMovement.tile = 2;
                 print("entra2");
                 break;
-        case "BasicTile": playerMovement.tile = 3;
+            case "BasicTile": playerMovement.tile = 3;
                 print("entra3");
                 break;
-        case "SlowTile": playerMovement.speed -= 1;
+            case "SlowTile": playerMovement.speed -= 1;
                 print("entra4");
                 break;
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+            playerMovement.jump = 0;
     }
 }
