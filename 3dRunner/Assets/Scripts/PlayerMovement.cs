@@ -8,23 +8,22 @@ public class PlayerMovement : MonoBehaviour
     public int tile;
     private bool action;
     public bool giro;
-    public float velocidadSalto;
-    private float velocidady;
+    public float jumpForce = 50.0f;
     public float speed = 9.0f;
-    private CharacterController myCharacterController;
+    public int jump;
+    private Rigidbody playerRb;
 
     // Start is called before the first frame update
     void Start()
     {
-        myCharacterController = GetComponent<CharacterController>();
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
      {
         action = Input.GetKeyDown(KeyCode.Space);
-
-        velocidady += Physics.gravity.y * Time.deltaTime;
+        //print(speed);
         if (action) print("action");
         if (tile == 1 && action && !giro)
         {
@@ -37,17 +36,13 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(new Vector3(0f, -90f, 0f));
             giro = true;
         }
-        else if (action) {
-
-            velocidady = velocidadSalto;
-
-
+        else if (action && jump < 2) {
+            playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
+            ++jump;
         }
-
-
-        Vector3 velocidad = new Vector3(0f, 0f, 0f);
-        velocidad.y = velocidady;
-        myCharacterController.Move(velocidad*Time.deltaTime);
-        myCharacterController.Move(transform.forward * speed * Time.deltaTime);
+        if (transform.position.y < 5.1f) jump = 0; //cambiar bien paushi
+        print(transform.position.y);
+        transform.Translate(0, 0, speed * Time.deltaTime);
+        //myCharacterController.Move(transform.forward * speed * Time.deltaTime);
     }
 }

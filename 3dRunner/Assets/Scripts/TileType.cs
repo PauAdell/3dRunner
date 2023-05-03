@@ -7,23 +7,23 @@ public class TileType : MonoBehaviour
     public PlayerMovement playerMovement;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "RightTile")
-        {
-            playerMovement.tile = 1;
-        }
-        else if (other.gameObject.name == "LeftTile")
-        {
-            playerMovement.tile = 2;
-        }
-        else
-        {
-            playerMovement.tile = 3;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        
         playerMovement.tile = 3;
         playerMovement.giro = false;
+        playerMovement.speed = 4.0f;
+        switch (other.gameObject.tag) 
+        {
+        case "RightTile": playerMovement.tile = 1;
+                print("entra1");
+                break;
+        case "LeftTile":  playerMovement.tile = 2;
+                print("entra2");
+                break;
+        case "BasicTile": playerMovement.tile = 3;
+                print("entra3");
+                break;
+        case "SlowTile": playerMovement.speed -= 1;
+                print("entra4");
+                break;
+        }
     }
 }
