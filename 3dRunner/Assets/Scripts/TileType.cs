@@ -10,6 +10,8 @@ public class TileType : MonoBehaviour
         playerMovement.tile = 3;
         playerMovement.giro = false;
         playerMovement.speed = 4.0f;
+        playerMovement.desactivar_giro = false;
+        playerMovement.desactivado = false;
         switch (other.gameObject.tag)
         {
             case "RightTile": playerMovement.tile = 1;
@@ -28,4 +30,5 @@ public class TileType : MonoBehaviour
             playerMovement.is_grounded = true;
          
     }
+
 }
