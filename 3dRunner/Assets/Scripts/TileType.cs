@@ -9,7 +9,7 @@ public class TileType : MonoBehaviour
     {
         playerMovement.tile = 3;
         playerMovement.giro = false;
-        playerMovement.speed = 4.0f;
+        playerMovement.speed = 3.0f;
         playerMovement.desactivar_giro = false;
         playerMovement.desactivado = false;
         switch (other.gameObject.tag)
@@ -21,6 +21,10 @@ public class TileType : MonoBehaviour
             case "BasicTile": playerMovement.tile = 3;
                 break;
             case "SlowTile": playerMovement.speed -= 1;
+                break;
+            case "Trap": playerMovement.muerte = 1;
+                break;
+            case "Trap2": playerMovement.muerte = 2;
                 break;
         }
     }

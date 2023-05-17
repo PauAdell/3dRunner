@@ -10,6 +10,7 @@ TagManager:
   - LeftTile
   - BasicTile
   - SlowTile
+  - Trap2
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool desactivar_giro;
     public bool desactivado;
     bool retroceder;
+    public int muerte;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         myAnim = GetComponent<Animator>();
         desactivar_giro = false;
         giro = false;
+        muerte = 0;
     }
 
     // Update is called once per frame
@@ -111,9 +113,23 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         if (in_anim > 0) --in_anim;
+        if (muerte > 0) in_anim = 0;
+        if (muerte == 1 && in_anim == 0)
+        {
+            myAnim.StopPlayback();
+            myAnim.Play("Walk to die");
+            in_anim = 300;
+        }
+        else if (muerte == 2 && in_anim == 0)
+        {
+            myAnim.StopPlayback();
+            myAnim.Play("Dying Backwards");
+            in_anim = 300;
+        }
+        else transform.Translate(0, 0, speed * Time.deltaTime);
+        print(muerte);
         if (is_grounded && in_anim == 0) myAnim.Play("running");
         //print(transform.position.y);
-        transform.Translate(0, 0, speed * Time.deltaTime);
         //myCharacterController.Move(transform.forward * speed * Time.deltaTime);
     }
 }
