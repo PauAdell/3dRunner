@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator myAnim;
     public bool is_grounded;
     public bool girando;
+    public bool canviotex;
     public int tile;
     private bool action;
     public bool giro;
@@ -73,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (girando)
         {
+            canviotex = true;
             if (tile == 1 && (playerRb.position.z % 2 > 1.55 || retroceder))
             {
                 if (playerRb.position.z % 2 > 1.75)

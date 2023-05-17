@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileType : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public Texture stepMaterial;
     private void OnTriggerEnter(Collider other)
     {
         playerMovement.tile = 3;
@@ -28,6 +29,16 @@ public class TileType : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (playerMovement.canviotex && (other.gameObject.tag == "RightTile" || other.gameObject.tag == "LeftTile"))
+        {
+            other.gameObject.GetComponent<Renderer>().material.mainTexture = stepMaterial;
+            playerMovement.canviotex = false;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
             playerMovement.jump = 0;
