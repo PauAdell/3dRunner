@@ -39,13 +39,16 @@ public class PlayerMovement : MonoBehaviour
                 if (desactivar_giro && playerRb.position.z % 2 <= 0.3) retroceder = true;
                 girando = true;
                 giro = true;
-                print("entra");
             }
         }
         else if (tile == 2 && action && !giro && is_grounded)
         {
-            girando = true;
-            giro = true;
+            if (!desactivar_giro || (playerRb.position.x % 2 < 0.5 || playerRb.position.x % 2 >= 1))
+            {
+                if (desactivar_giro && playerRb.position.x % 2 <= 0.5) retroceder = true;
+                girando = true;
+                giro = true;
+            }
         }
         else if (action && jump < 2 && in_anim == 0) {
             myAnim.StopPlayback();
@@ -60,13 +63,17 @@ public class PlayerMovement : MonoBehaviour
             desactivar_giro = true;
             desactivado = true;
         }
+        if (tile == 2 && playerRb.position.x % 2 > 1 && !desactivado)
+        {
+            desactivar_giro = true;
+            desactivado = true;
+        }
+
         if (girando)
         {
-            desactivar_giro = false;
-            print(retroceder);
-            if ((tile == 1 && playerRb.position.z % 2 > 1.5) || retroceder)
+            if (tile == 1 && (playerRb.position.z % 2 > 1.55 || retroceder))
             {
-                if (playerRb.position.z % 2 > 1.75 && playerRb.position.z % 2 < 2)
+                if (playerRb.position.z % 2 > 1.75)
                 {
                     transform.Translate(0, 0, -0.15f); 
                 }
@@ -80,16 +87,27 @@ public class PlayerMovement : MonoBehaviour
                 }
                 girando = false;
                 retroceder = false;
+                desactivar_giro = false;
+
             }
-            else if (tile == 2 && playerRb.position.x % 2 > 1.8)
+            else if (tile == 2 && (playerRb.position.x % 2 > 1.8 || retroceder))
             {
-                if (playerRb.position.x % 2 > 2)
+                if (playerRb.position.x % 2 > 1.9)
                 {
-                    transform.Translate(0, 0, 1.5f);
+
+                    transform.Translate(0, 0, -0.05f);
                 }
-                transform.Rotate(new Vector3(0f, -90f, 0f));
-                in_anim = 60;
+                if (retroceder) transform.Translate(0, 0, -0.5f);
+                if (playerRb.position.x % 2 < 2 || retroceder)
+                {
+                    transform.Rotate(new Vector3(0f, -90f, 0f));
+                    myAnim.StopPlayback();
+                    myAnim.Play("Right turning");
+                    in_anim = 60;
+                }
                 girando = false;
+                retroceder = false;
+                desactivar_giro = false;
             }
         }
         if (in_anim > 0) --in_anim;
