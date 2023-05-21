@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
      {
         action = Input.GetKeyDown(KeyCode.Space);
+        print(tile);
         if (tile == 1 && action && !giro && is_grounded)
         {
             if (!desactivar_giro || (playerRb.position.z % 2 < 0.3 || playerRb.position.z%2 >= 1)) {
@@ -129,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             in_anim = 300;
         }
         else transform.Translate(0, 0, speed * Time.deltaTime);
-        print(muerte);
+        //print(muerte);
         if (is_grounded && in_anim == 0) myAnim.Play("running");
         //print(transform.position.y);
         //myCharacterController.Move(transform.forward * speed * Time.deltaTime);
