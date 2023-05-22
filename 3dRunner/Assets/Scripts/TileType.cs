@@ -29,7 +29,7 @@ public class TileType : MonoBehaviour
                 break;
         }
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (playerMovement.canviotex && (other.gameObject.tag == "RightTile" || other.gameObject.tag == "LeftTile"))
@@ -38,6 +38,7 @@ public class TileType : MonoBehaviour
             playerMovement.canviotex = false;
         }
     }
+    
 
     private void OnCollisionEnter(Collision collision)
     {

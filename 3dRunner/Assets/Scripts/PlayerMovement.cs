@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool desactivado;
     bool retroceder;
     public int muerte;
+    public int numgiros;
 
     // Start is called before the first frame update
     void Start()
@@ -36,13 +37,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
      {
         action = Input.GetKeyDown(KeyCode.Space);
-        print(tile);
+        //print(action);
+        //print(tile);
         if (tile == 1 && action && !giro && is_grounded)
         {
             if (!desactivar_giro || (playerRb.position.z % 2 < 0.3 || playerRb.position.z%2 >= 1)) {
                 if (desactivar_giro && playerRb.position.z % 2 <= 0.3) retroceder = true;
                 girando = true;
                 giro = true;
+                print("giraaaaaa");
             }
         }
         else if (tile == 2 && action && !giro && is_grounded)
@@ -76,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (girando)
         {
             canviotex = true;
+            numgiros += 1;
             if (tile == 1 && (playerRb.position.z % 2 > 1.55 || retroceder))
             {
                 if (playerRb.position.z % 2 > 1.75)
@@ -97,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile == 2 && (playerRb.position.x % 2 > 1.8 || retroceder))
             {
+                
                 if (playerRb.position.x % 2 > 1.9)
                 {
 

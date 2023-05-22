@@ -11,6 +11,8 @@ TagManager:
   - BasicTile
   - SlowTile
   - Trap2
+  - txtmonedas
+  - txtgiros
   layers:
   - Default
   - TransparentFX
