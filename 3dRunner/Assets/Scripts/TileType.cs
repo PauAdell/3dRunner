@@ -7,16 +7,19 @@ public class TileType : MonoBehaviour
     public PlayerMovement playerMovement;
     private void OnTriggerEnter(Collider other)
     {
+        playerMovement.goalPosition = other.bounds.center;
         playerMovement.tile = 3;
         playerMovement.giro = false;
         playerMovement.speed = 3.0f;
-        playerMovement.desactivar_giro = false;
-        playerMovement.desactivado = false;
         switch (other.gameObject.tag)
         {
             case "RightTile": playerMovement.tile = 1;
+                playerMovement.target = playerMovement.transform.position.z + 1;
+                //print(other.gameObject.transform.position.z);
+                //print(other.bounds.min.z);
                 break;
             case "LeftTile": playerMovement.tile = 2;
+                playerMovement.target =  other.bounds.max.x - other.bounds.min.x;
                 break;
             case "BasicTile": playerMovement.tile = 3;
                 break;
