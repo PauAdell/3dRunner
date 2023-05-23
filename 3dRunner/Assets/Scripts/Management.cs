@@ -14,13 +14,15 @@ public class Management : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "moneda")  monedas += 1;
+        if (other.CompareTag("moneda"))  {
+            monedas += 1;
+            other.gameObject.SetActive(false);
+    }
     }
 
     public void EndGame() {

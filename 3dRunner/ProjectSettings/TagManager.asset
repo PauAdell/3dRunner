@@ -11,6 +11,7 @@ TagManager:
   - BasicTile
   - SlowTile
   - Trap2
+  - moneda
   layers:
   - Default
   - TransparentFX
