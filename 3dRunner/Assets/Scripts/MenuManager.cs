@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void PlayGame ()
-    {
-        print("click");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    
+    public void canviEscena(string nomEscena) {
+        SceneManager.LoadScene(nomEscena);
     }
 
     // Update is called once per frame
