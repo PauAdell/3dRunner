@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             myAnim.StopPlayback();
             myAnim.Play("Running jump");
             playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-            in_anim = 100;
+            in_anim = 60;
             ++jump;
             is_grounded = false;
         }
