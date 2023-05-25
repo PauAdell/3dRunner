@@ -5,6 +5,12 @@ using UnityEngine;
 public class TileType : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    private float initial_speed;
+
+    void Start()
+    {
+        initial_speed = playerMovement.speed;
+    }
     private void OnTriggerEnter(Collider other)
     {
         playerMovement.goalPosition = other.bounds.center;
@@ -15,21 +21,24 @@ public class TileType : MonoBehaviour
         {
             case "RightTile": playerMovement.tile = 1;
                 playerMovement.target = playerMovement.transform.position.z + 1;
-                //print(other.gameObject.transform.position.z);
-                //print(other.bounds.min.z);
                 break;
             case "LeftTile": playerMovement.tile = 2;
-                playerMovement.target =  other.bounds.max.x - other.bounds.min.x;
+                playerMovement.target = playerMovement.transform.position.x + 1;
                 break;
             case "BasicTile": playerMovement.tile = 3;
                 break;
-            case "SlowTile": playerMovement.speed -= 1;
+            case "SlowTile": if (!playerMovement.god_mode) playerMovement.speed -= 1;
                 break;
-            case "Trap": playerMovement.muerte = 1;
+            case "Trap": if (!playerMovement.god_mode) playerMovement.muerte = 1;
                 break;
-            case "Trap2": playerMovement.muerte = 2;
+            case "Trap2": if (!playerMovement.god_mode) playerMovement.muerte = 2;
                 break;
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
     }
     private void OnCollisionEnter(Collision collision)
     {

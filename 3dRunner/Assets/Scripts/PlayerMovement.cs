@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public bool girando;
     public int tile;
     private bool action;
+    private bool action_g;
     public bool giro;
     public float jumpForce = 50.0f;
     public float speed = 9.0f;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float current, target;
     public Vector3 goalPosition;
     private bool aprox;
+    public bool god_mode;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +31,14 @@ public class PlayerMovement : MonoBehaviour
         giro = false;
         muerte = 0;
         current = 0;
+        god_mode = false;
     }
 
     // Update is called once per frame
     void Update()
      {
+        action_g = Input.GetKeyDown(KeyCode.G);
+        if (action_g) god_mode = !god_mode;
         action = Input.GetKeyDown(KeyCode.Space);
         if (tile == 1 && action && !giro && is_grounded)
         {
@@ -53,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             myAnim.StopPlayback();
             myAnim.Play("Running jump");
             playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-            in_anim = 60;
+            in_anim = 80;
             ++jump;
             is_grounded = false;
         }
