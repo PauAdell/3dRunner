@@ -20,8 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public int muerte;
     public float current, target;
     public Vector3 goalPosition;
-    private bool aprox;
+    public bool aprox;
     public bool god_mode;
+    public bool auto_salto;
+    public int grado_giro;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         muerte = 0;
         current = 0;
         god_mode = false;
+        grado_giro = 0;
     }
 
     // Update is called once per frame
@@ -54,20 +57,35 @@ public class PlayerMovement : MonoBehaviour
                 aprox = true;
                 current = transform.position.x;
         }
-        else if (action && jump < 2 && in_anim == 0) {
+        else if ((action && jump < 2 && in_anim == 0) || (auto_salto && in_anim == 0)) {
             myAnim.StopPlayback();
             myAnim.Play("Running jump");
             playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-            in_anim = 80;
+            in_anim = 180;
             ++jump;
             is_grounded = false;
+            if (tile != 4) auto_salto = false;
+            else tile = 3;
         }
-
         if (girando)
         {
-            if (tile == 1) transform.Rotate(new Vector3(0f, 90f, 0f));
-            else if (tile == 2) transform.Rotate(new Vector3(0f, -90f, 0f));
-            girando = false;
+            speed = 4;
+            if (tile == 1)
+            {
+                transform.Rotate(new Vector3(0f, 3f, 0f));
+                grado_giro += 3;
+            }
+            else if (tile == 2)
+            {
+                transform.Rotate(new Vector3(0f, -3f, 0f));
+                grado_giro -= 3;
+            }
+            if (grado_giro == 90 || grado_giro == -90)
+            {
+                girando = false;
+                grado_giro = 0;
+                speed = 5;
+            }
         }
         if (in_anim > 0) --in_anim;
         if (muerte > 0) in_anim = 0;
