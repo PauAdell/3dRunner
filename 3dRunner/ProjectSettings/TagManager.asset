@@ -12,6 +12,8 @@ TagManager:
   - SlowTile
   - Trap2
   - moneda
+  - TileSalto
+  - TileSalto2
   layers:
   - Default
   - TransparentFX
