@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MisilMovement : MonoBehaviour
 {
+    Vector3 ini_pos;
     public int tile;
     public bool girando;
     public bool giro;
@@ -17,43 +18,57 @@ public class MisilMovement : MonoBehaviour
     void Start()
     {
         giro = false;
+        girando = false;
         current = 0;
+        aprox = false;
         grado_giro = 0;
+        ini_pos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!playerMovement.start && transform.position != ini_pos) transform.position = ini_pos;
         speed = playerMovement.speed;
-        //print(girando);
-        if (girando)
+        if (playerMovement.muerte != 0)
         {
-            if (tile == 1)
-            {
-                transform.Rotate(new Vector3(0f, 3f, 0f));
-                grado_giro += 3;
-            }
-            else if (tile == 2)
-            {
-                transform.Rotate(new Vector3(0f, -3f, 0f));
-                grado_giro -= 3;
-            }
-            if (grado_giro == 90 || grado_giro == -90)
-            {
-                girando = false;
-                grado_giro = 0;
-            }
+            giro = false;
+            girando = false;
+            current = 0;
+            aprox = false;
+            grado_giro = 0;
         }
-        transform.Translate(0, 0, speed * Time.deltaTime);
-        if (aprox)
+        if (playerMovement.start)
         {
-            current = Mathf.MoveTowards(current, target, Time.deltaTime);
-            Vector3 pos;
-            if (tile == 1) pos = new Vector3(transform.position.x, transform.position.y, goalPosition.z);
-            else pos = new Vector3(goalPosition.x, transform.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, pos, current / target);
-            if (transform.position == pos) aprox = false;
-        }
+            if (girando)
+            {
+                if (tile == 1)
+                {
+                    transform.Rotate(new Vector3(0f, 3f, 0f));
+                    grado_giro += 3;
+                }
+                else if (tile == 2)
+                {
+                    transform.Rotate(new Vector3(0f, -3f, 0f));
+                    grado_giro -= 3;
+                }
+                if (grado_giro == 90 || grado_giro == -90)
+                {
+                    girando = false;
+                    grado_giro = 0;
+                }
+            }
+            transform.Translate(0, 0, speed * Time.deltaTime);
+            if (aprox)
+            {
+                current = Mathf.MoveTowards(current, target, Time.deltaTime);
+                Vector3 pos;
+                if (tile == 1) pos = new Vector3(transform.position.x, transform.position.y, goalPosition.z);
+                else pos = new Vector3(goalPosition.x, transform.position.y, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, pos, current / target);
+                if (transform.position == pos) aprox = false;
+            }
 
+        }
     }
 }

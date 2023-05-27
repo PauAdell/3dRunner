@@ -13,51 +13,62 @@ public class TileType : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        playerMovement.goalPosition = other.bounds.center;
-        playerMovement.tile = 3;
-        playerMovement.giro = false;
-        playerMovement.speed = 5.0f;
-        switch (other.gameObject.tag)
+        if (playerMovement.muerte == 0)
         {
-            case "RightTile": playerMovement.tile = 1;
-                playerMovement.target = playerMovement.transform.position.z + 1;
-                if (playerMovement.god_mode)
-                {
-                    playerMovement.girando = true;
-                    playerMovement.giro = true;
-                    playerMovement.aprox = true;
-                    playerMovement.current = transform.position.z;
-                }
+            playerMovement.goalPosition = other.bounds.center;
+            playerMovement.tile = 3;
+            playerMovement.giro = false;
+            playerMovement.speed = 5.0f;
+            switch (other.gameObject.tag)
+            {
+                case "RightTile":
+                    playerMovement.tile = 1;
+                    playerMovement.target = playerMovement.transform.position.z + 1;
+                    if (playerMovement.god_mode)
+                    {
+                        playerMovement.girando = true;
+                        playerMovement.giro = true;
+                        playerMovement.aprox = true;
+                        playerMovement.current = transform.position.z;
+                    }
                     break;
-            case "LeftTile": playerMovement.tile = 2;
-                playerMovement.target = playerMovement.transform.position.x + 1;
-                if (playerMovement.god_mode)
-                {
-                    playerMovement.girando = true;
-                    playerMovement.giro = true;
-                    playerMovement.aprox = true;
-                    playerMovement.current = transform.position.z;
-                }
-                break;
-            case "BasicTile": playerMovement.tile = 3;
-                break;
-            case "SlowTile": if (!playerMovement.god_mode) playerMovement.speed -= 1;
-                break;
-            case "Trap": if (!playerMovement.god_mode) playerMovement.muerte = 1;
-                break;
-            case "Trap2": if (!playerMovement.god_mode) playerMovement.muerte = 2;
-                break;
-            case "TileSalto": playerMovement.tile = 3;
-                if (playerMovement.god_mode) playerMovement.auto_salto = true;
-                break;
-            case "TileSalto2":
-                playerMovement.tile = 4;
-                if (playerMovement.god_mode) playerMovement.auto_salto = true;
-                break;
-            case "Void":
-                playerMovement.muerte = 1;
-                playerMovement.gameObject.SetActive(false);
-                break;
+                case "LeftTile":
+                    playerMovement.tile = 2;
+                    playerMovement.target = playerMovement.transform.position.x + 1;
+                    if (playerMovement.god_mode)
+                    {
+                        playerMovement.girando = true;
+                        playerMovement.giro = true;
+                        playerMovement.aprox = true;
+                        playerMovement.current = transform.position.z;
+                    }
+                    break;
+                case "BasicTile":
+                    playerMovement.tile = 3;
+                    break;
+                case "SlowTile":
+                    if (!playerMovement.god_mode) playerMovement.speed -= 1;
+                    break;
+                case "Trap":
+                    if (!playerMovement.god_mode) playerMovement.muerte = 1;
+                    break;
+                case "Trap2":
+                    if (!playerMovement.god_mode) playerMovement.muerte = 2;
+                    break;
+                case "TileSalto":
+                    playerMovement.tile = 3;
+                    if (playerMovement.god_mode) playerMovement.auto_salto = true;
+                    break;
+                case "TileSalto2":
+                    playerMovement.tile = 4;
+                    if (playerMovement.god_mode) playerMovement.auto_salto = true;
+                    break;
+                case "Void":
+                    playerMovement.muerte = 5;
+                    gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+                    playerMovement.playerRb.isKinematic = true;
+                    break;
+            }
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    Vector3 pos_ini;
     public Animator myAnim;
     public bool is_grounded;
     public bool girando;
@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public bool giro;
     public float jumpForce = 50.0f;
     public float speed;
-    public int jump = 0;
-    private Rigidbody playerRb;
+    public int jump;
+    public Rigidbody playerRb;
     private int in_anim;
     public int muerte;
     public float current, target;
@@ -24,26 +24,34 @@ public class PlayerMovement : MonoBehaviour
     public bool god_mode;
     public bool auto_salto;
     public int grado_giro;
-    bool start;
+    public bool start;
 
     // Start is called before the first frame update
     void Start()
     {
+        jump = 0;
         playerRb = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
         giro = false;
+        girando = false;
         muerte = 0;
+        aprox = false;
+        is_grounded = true;
         current = 0;
         god_mode = false;
         grado_giro = 0;
+        in_anim = 0;
+        auto_salto = false;
         start = false;
         myAnim.SetBool("start", false);
-        gameObject.SetActive(true);
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        pos_ini = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (!start)
         {
             speed = 0;
@@ -54,8 +62,58 @@ public class PlayerMovement : MonoBehaviour
                 speed = 5;
             }
         }
+        else if (muerte == 1 && in_anim == 0)
+        {
+            myAnim.StopPlayback();
+            myAnim.Play("Walk to die");
+            in_anim = 1000;
+            speed = 0;
+        }
+        else if (muerte == 2 && in_anim == 0)
+        {
+            myAnim.StopPlayback();
+            myAnim.Play("Dying Backwards");
+            in_anim = 1000;
+            speed = 0;
+        }
+        else if (muerte != 0 && in_anim != 0)
+        {
+            --in_anim;
+            if (in_anim == 0) muerte = 5;
+        }
+        else if (muerte == 5)
+        {
+            //menu escape y volver a jugar
+            if (Input.GetKeyDown(KeyCode.Space)) //boton de volver
+            {
+                jump = 0;
+                playerRb = GetComponent<Rigidbody>();
+                myAnim = GetComponent<Animator>();
+                giro = false;
+                girando = false;
+                muerte = 0;
+                aprox = false;
+                is_grounded = true;
+                current = 0;
+                in_anim = 0;
+                god_mode = false;
+                grado_giro = 0;
+                auto_salto = false;
+                start = false;
+                myAnim.SetBool("start", false);
+                gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+                transform.position = pos_ini;
+                myAnim.Play("Idle");
+                playerRb.isKinematic = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape)) //volver menu principal
+            {
+
+            }
+        }
         else
         {
+            //print(muerte);
             action_g = Input.GetKeyDown(KeyCode.G);
             if (action_g) god_mode = !god_mode;
             action = Input.GetKeyDown(KeyCode.Space);
@@ -78,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
                 myAnim.StopPlayback();
                 myAnim.Play("Running jump");
                 playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-                in_anim = 180;
+                in_anim = 250;
                 ++jump;
                 is_grounded = false;
                 if (tile != 4) auto_salto = false;
@@ -106,19 +164,9 @@ public class PlayerMovement : MonoBehaviour
             }
             if (in_anim > 0) --in_anim;
             if (muerte > 0) in_anim = 0;
-            if (muerte == 1 && in_anim == 0)
-            {
-                myAnim.StopPlayback();
-                myAnim.Play("Walk to die");
-                in_anim = 300;
-            }
-            else if (muerte == 2 && in_anim == 0)
-            {
-                myAnim.StopPlayback();
-                myAnim.Play("Dying Backwards");
-                in_anim = 300;
-            }
-            else transform.Translate(0, 0, speed * Time.deltaTime);
+
+            transform.Translate(0, 0, speed * Time.deltaTime);
+
             if (aprox)
             {
                 current = Mathf.MoveTowards(current, target, Time.deltaTime);
@@ -129,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
                 if (transform.position == pos) aprox = false;
             }
             if (is_grounded && in_anim == 0) myAnim.Play("running");
+
         }
     }
 }
