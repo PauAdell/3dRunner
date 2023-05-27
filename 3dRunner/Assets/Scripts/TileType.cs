@@ -54,6 +54,10 @@ public class TileType : MonoBehaviour
                 playerMovement.tile = 4;
                 if (playerMovement.god_mode) playerMovement.auto_salto = true;
                 break;
+            case "Void":
+                playerMovement.muerte = 1;
+                playerMovement.gameObject.SetActive(false);
+                break;
         }
     }
 
