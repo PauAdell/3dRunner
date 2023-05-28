@@ -62,12 +62,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(muerte);
+        if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
-
-            print(action);
             menuMuerte.SetActive(true);
+            PauseMenu.jugadormort = true;
         }
         else
         {
@@ -85,42 +84,52 @@ public class PlayerMovement : MonoBehaviour
             {
                 myAnim.StopPlayback();
                 myAnim.Play("Walk to die");
-                in_anim = 800;
+                in_anim = 900;
                 speed = 0;
             }
             else if (muerte == 2 && in_anim == 0)
             {
                 myAnim.StopPlayback();
                 myAnim.Play("Dying Backwards");
-                in_anim = 800;
+                in_anim = 900;
                 speed = 0;
             }
             else if (muerte != 0 && in_anim != 0)
             {
-                --in_anim;
+                if (!PauseMenu.jocParat) --in_anim;
                 if (in_anim == 0) muerte = 5;
             }
-            else
+            else if (!PauseMenu.jocParat)
             {
                 action_g = Input.GetKeyDown(KeyCode.G);
                 if (action_g) god_mode = !god_mode;
                 action = Input.GetKeyDown(KeyCode.Space);
                 if (tile == 1 && action && !giro && is_grounded)
-                {
-                    girando = true;
-                    giro = true;
-                    aprox = true;
+                { 
                     current = transform.position.z;
+                    print(current);
+                    print(target);
+                    if (current < target + 1.6)
+                    {
+                        girando = true;
+                        giro = true;
+                        aprox = true;
+                    }
                 }
                 else if (tile == 2 && action && !giro && is_grounded)
                 {
-                    girando = true;
-                    giro = true;
-                    aprox = true;
                     current = transform.position.x;
+                    if (current < target + 1.6)
+                    {
+                        girando = true;
+                        giro = true;
+                        aprox = true;
+                    }
+                  
                 }
                 else if ((action && jump < 2 && in_anim == 0) || (auto_salto && in_anim == 0))
                 {
+                    speed = 5;
                     myAnim.StopPlayback();
                     myAnim.Play("Running jump");
                     playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
@@ -181,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void startFromZero()
     {
-
+        PauseMenu.jugadormort = false;
         jump = 0;
         playerRb = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();

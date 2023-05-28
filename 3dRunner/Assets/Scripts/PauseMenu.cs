@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool jocParat = false;
-    public GameObject player;
+    public static bool jugadormort = false;
+
 
     public GameObject menuPausa;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !jugadormort)
         {
             if (jocParat)
             {

@@ -49,7 +49,7 @@ public class TileType : MonoBehaviour
                     if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
                     break;
                 case "SlowTile":
-                    if (!playerMovement.god_mode) playerMovement.speed -= 1;
+                    if (!playerMovement.god_mode) playerMovement.speed -= 2;
                     break;
                 case "Trap":
                     if (!playerMovement.god_mode) playerMovement.muerte = 1;

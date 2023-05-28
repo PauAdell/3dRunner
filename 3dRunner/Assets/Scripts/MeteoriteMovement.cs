@@ -23,7 +23,7 @@ public class MeteoriteMovement : MonoBehaviour
         if (!playerMovement.start)
         {
             arrancar = false;
-            transform.position = ini_pos;
+            transform.position = ini_pos;      
         }
         else if (arrancar && playerMovement.muerte == 0) transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
