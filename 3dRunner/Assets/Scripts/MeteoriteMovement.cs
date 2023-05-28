@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class MeteoriteMovement : MonoBehaviour
 {
-    private Vector3 target;
-    [SerializeField] float speed;
+    public Vector3 target;
+    private Vector3 ini_pos;
+    public float speed;
+    public bool arrancar;
+    public PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
     {
-        target = transform.position;
-        target.z -= 10;
+        arrancar = false;
+        speed = 3;
+        ini_pos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (!playerMovement.start)
+        {
+            arrancar = false;
+            transform.position = ini_pos;
+        }
+        else if (arrancar && playerMovement.muerte == 0) transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }

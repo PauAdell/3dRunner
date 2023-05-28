@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileType : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public MeteoriteMovement meteoriteMovement;
     private float initial_speed;
 
     void Start()
@@ -69,6 +70,12 @@ public class TileType : MonoBehaviour
                     gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
                     playerMovement.playerRb.isKinematic = true;
                     break;
+                case "MeteoriteTile":
+                    meteoriteMovement.arrancar = true;
+                    playerMovement.tile = 3;
+                    meteoriteMovement.target = playerMovement.transform.position;
+                    meteoriteMovement.target.y += 1;
+                    break;
             }
         }
     }
@@ -76,8 +83,8 @@ public class TileType : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
-        if (other.CompareTag("Trap")) if (!playerMovement.god_mode) playerMovement.muerte = 1;
-        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode) playerMovement.muerte = 2;
+        if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte != 5) playerMovement.muerte = 1;
+        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte != 5) playerMovement.muerte = 2;
 
     }
     private void OnCollisionEnter(Collision collision)

@@ -31,7 +31,11 @@ public class Management : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "moneda") monedas += 1;
+        if (other.gameObject.tag == "moneda")
+        {
+            other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            monedas += 1;
+        }
     }
 
     public void EndGame() {
