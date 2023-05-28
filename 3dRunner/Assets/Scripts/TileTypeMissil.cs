@@ -6,9 +6,11 @@ public class TileTypeMissil : MonoBehaviour
 {
 
     public MisilMovement misilMovement;
+    public PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -35,5 +37,10 @@ public class TileTypeMissil : MonoBehaviour
                 misilMovement.current = transform.position.z;
                 break;
         }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+            if (!playerMovement.god_mode) playerMovement.muerte = 1;
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
     }
 }

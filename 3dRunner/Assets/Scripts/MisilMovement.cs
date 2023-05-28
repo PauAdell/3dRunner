@@ -23,12 +23,17 @@ public class MisilMovement : MonoBehaviour
         aprox = false;
         grado_giro = 0;
         ini_pos = transform.position;
+        speed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!playerMovement.start && transform.position != ini_pos) transform.position = ini_pos;
+        if (!playerMovement.start && transform.position != ini_pos)
+        {
+            transform.position = ini_pos;
+            speed = 0;
+        }
         speed = playerMovement.speed;
         if (playerMovement.muerte != 0)
         {
@@ -40,6 +45,7 @@ public class MisilMovement : MonoBehaviour
         }
         if (playerMovement.start)
         {
+            speed = 5;
             if (girando)
             {
                 if (tile == 1)
