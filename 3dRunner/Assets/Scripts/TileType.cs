@@ -45,6 +45,7 @@ public class TileType : MonoBehaviour
                     break;
                 case "BasicTile":
                     playerMovement.tile = 3;
+                    if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
                     break;
                 case "SlowTile":
                     if (!playerMovement.god_mode) playerMovement.speed -= 1;
@@ -75,11 +76,14 @@ public class TileType : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
+        if (other.CompareTag("Trap")) if (!playerMovement.god_mode) playerMovement.muerte = 1;
+        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode) playerMovement.muerte = 2;
+
     }
     private void OnCollisionEnter(Collision collision)
     {
             playerMovement.jump = 0;
-            playerMovement.is_grounded = true;
+            if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y) playerMovement.is_grounded = true;
          
     }
 

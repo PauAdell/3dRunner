@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174fe467d97288a4a92ebedfc6aebb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos_ini: {x: 0, y: 0, z: 0}
   myAnim: {fileID: 0}
   is_grounded: 0
   girando: 0
@@ -846,6 +847,7 @@ MonoBehaviour:
   auto_salto: 0
   grado_giro: 0
   start: 0
+  salto_corto: 0
 --- !u!114 &73716123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,20 +898,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &73716127
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73716121}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &73716128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,6 +922,19 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!65 &73716130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73716121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 2, z: 0.7}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &77867570
 PrefabInstance:
   m_ObjectHideFlags: 0

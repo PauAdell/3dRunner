@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector3 pos_ini;
+    public Vector3 pos_ini;
     public Animator myAnim;
     public bool is_grounded;
     public bool girando;
@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool action;
     private bool action_g;
     public bool giro;
-    public float jumpForce = 50.0f;
+    public float jumpForce = 1.0f;
     public float speed;
     public int jump;
     public Rigidbody playerRb;
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public bool auto_salto;
     public int grado_giro;
     public bool start;
+    public bool salto_corto;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         girando = false;
         muerte = 0;
         aprox = false;
+        salto_corto = false;
         is_grounded = true;
         current = 0;
         god_mode = false;
@@ -104,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
                 transform.position = pos_ini;
                 myAnim.Play("Idle");
+                salto_corto = false;
                 playerRb.isKinematic = false;
             }
             else if (Input.GetKeyDown(KeyCode.Escape)) //volver menu principal
@@ -176,7 +179,14 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, pos, current / target);
                 if (transform.position == pos) aprox = false;
             }
-            if (is_grounded && in_anim == 0) myAnim.Play("running");
+            if (salto_corto && in_anim == 0)
+            {
+                salto_corto = false;
+                playerRb.AddForce(new Vector3(0, 0, -2f) * jumpForce, ForceMode.Impulse);
+                in_anim = 1000;
+                speed = 1;
+            }
+            else if (is_grounded && in_anim == 0) myAnim.Play("running");
 
         }
     }
