@@ -56,13 +56,6 @@ public class PlayerMovement : MonoBehaviour
     public int getNumGiros() {
         return numgiros;
     }
-        in_anim = 0;
-        auto_salto = false;
-        start = false;
-        myAnim.SetBool("start", false);
-        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-        pos_ini = transform.position;
-    }
 
     // Update is called once per frame
     void Update()
