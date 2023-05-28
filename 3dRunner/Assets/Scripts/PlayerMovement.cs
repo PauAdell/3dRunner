@@ -157,16 +157,17 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (girando)
                 {
+                    print(transform.position.z);
                     speed = 4;
                     if (tile == 1)
                     {
-                        transform.Rotate(new Vector3(0f, 3f, 0f));
-                        grado_giro += 3;
+                        transform.Rotate(new Vector3(0f, 5f, 0f));
+                        grado_giro += 5;
                     }
                     else if (tile == 2)
                     {
-                        transform.Rotate(new Vector3(0f, -3f, 0f));
-                        grado_giro -= 3;
+                        transform.Rotate(new Vector3(0f, -5f, 0f));
+                        grado_giro -= 5;
                     }
                     if (grado_giro == 90 || grado_giro == -90)
                     {
