@@ -34,7 +34,6 @@ public class MisilMovement : MonoBehaviour
             transform.position = ini_pos;
             speed = 0;
         }
-        speed = playerMovement.speed;
         if (playerMovement.muerte != 0)
         {
             giro = false;
@@ -43,6 +42,7 @@ public class MisilMovement : MonoBehaviour
             aprox = false;
             grado_giro = 0;
         }
+        if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         if (playerMovement.start)
         {
             speed = 5;
