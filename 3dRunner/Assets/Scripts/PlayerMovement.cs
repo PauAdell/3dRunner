@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public bool start;
     public bool salto_corto;
 
+    public GameObject menuMuerte;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,36 +65,9 @@ public class PlayerMovement : MonoBehaviour
         print(muerte);
         if (muerte == 5)
         {
-            action = Input.GetKeyDown(KeyCode.Space);
-            print(action);
-            //menu escape y volver a jugar
-            if (action) //boton de volver
-            {
-                jump = 0;
-                playerRb = GetComponent<Rigidbody>();
-                myAnim = GetComponent<Animator>();
-                giro = false;
-                girando = false;
-                muerte = 0;
-                aprox = false;
-                is_grounded = true;
-                current = 0;
-                in_anim = 0;
-                god_mode = false;
-                grado_giro = 0;
-                auto_salto = false;
-                start = false;
-                myAnim.SetBool("start", false);
-                gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-                transform.position = pos_ini;
-                myAnim.Play("Idle");
-                salto_corto = false;
-                playerRb.isKinematic = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape)) //volver menu principal
-            {
 
-            }
+            print(action);
+            menuMuerte.SetActive(true);
         }
         else
         {
@@ -203,5 +178,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    
+
+    public void startFromZero()
+    {
+
+        jump = 0;
+        playerRb = GetComponent<Rigidbody>();
+        myAnim = GetComponent<Animator>();
+        giro = false;
+        girando = false;
+        muerte = 0;
+        aprox = false;
+        is_grounded = true;
+        current = 0;
+        in_anim = 0;
+        god_mode = false;
+        grado_giro = 0;
+        auto_salto = false;
+        start = false;
+        myAnim.SetBool("start", false);
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        transform.position = pos_ini;
+        myAnim.Play("Idle");
+        salto_corto = false;
+        playerRb.isKinematic = false;
+        numgiros = 0;
+        menuMuerte.SetActive(false);
+    }
+
 }
