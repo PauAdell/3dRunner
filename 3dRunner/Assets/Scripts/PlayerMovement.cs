@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(muerte);
+        if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
 
@@ -100,24 +100,33 @@ public class PlayerMovement : MonoBehaviour
                 --in_anim;
                 if (in_anim == 0) muerte = 5;
             }
-            else
+            else if (!PauseMenu.jocParat)
             {
                 action_g = Input.GetKeyDown(KeyCode.G);
                 if (action_g) god_mode = !god_mode;
                 action = Input.GetKeyDown(KeyCode.Space);
                 if (tile == 1 && action && !giro && is_grounded)
-                {
-                    girando = true;
-                    giro = true;
-                    aprox = true;
+                { 
                     current = transform.position.z;
+                    print(current);
+                    print(target);
+                    if (current < target + 1.6)
+                    {
+                        girando = true;
+                        giro = true;
+                        aprox = true;
+                    }
                 }
                 else if (tile == 2 && action && !giro && is_grounded)
                 {
-                    girando = true;
-                    giro = true;
-                    aprox = true;
                     current = transform.position.x;
+                    if (current < target + 1.6)
+                    {
+                        girando = true;
+                        giro = true;
+                        aprox = true;
+                    }
+                  
                 }
                 else if ((action && jump < 2 && in_anim == 0) || (auto_salto && in_anim == 0))
                 {
