@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public bool god_mode;
     public bool auto_salto;
     public int grado_giro;
+    private int numgiros;
+
     public bool start;
     public bool salto_corto;
 
@@ -48,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         myAnim.SetBool("start", false);
         gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         pos_ini = transform.position;
+        numgiros = 0;
+    }
+
+    public int getNumGiros() {
+        return numgiros;
     }
 
     // Update is called once per frame
@@ -161,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
                 if (grado_giro == 90 || grado_giro == -90)
                 {
                     girando = false;
+                    numgiros += 1;
                     grado_giro = 0;
                     speed = 5;
                 }
