@@ -174,6 +174,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (19)
@@ -240,6 +256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d8bca04f859ae4143b8cdfc4cd86b167, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: d8bca04f859ae4143b8cdfc4cd86b167, type: 3}
       propertyPath: m_Name
       value: backhole land
@@ -306,6 +326,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (29)
@@ -370,7 +406,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4509e04728aa2d944bcc3c184f078097, type: 3}
       propertyPath: m_LocalPosition.x
+
       value: -4
+
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4509e04728aa2d944bcc3c184f078097, type: 3}
       propertyPath: m_LocalPosition.y
@@ -626,7 +664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4509e04728aa2d944bcc3c184f078097, type: 3}
       propertyPath: m_Name
-      value: Running (2)
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 1764910268326094525, guid: 4509e04728aa2d944bcc3c184f078097, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -898,18 +936,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+
 --- !u!114 &73716128
 MonoBehaviour:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73716121}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4972b54c6faa53b43b5a26239652e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!75 &73716129
 ConstantForce:
   m_ObjectHideFlags: 0
@@ -922,19 +964,34 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+
 --- !u!65 &73716130
 BoxCollider:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73716121}
+
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2, z: 0.7}
   m_Center: {x: 0, y: 1, z: 0}
+
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4972b54c6faa53b43b5a26239652e3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objgiros: {fileID: 183442204}
+  objmonedas: {fileID: 415553037}
+  monedas: 0
+  topScore: 0
+  playerMovement: {fileID: 73716122}
+
 --- !u!1001 &77867570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,6 +1116,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (37)
@@ -1171,6 +1244,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (18)
@@ -1186,6 +1275,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 765d500872033404493ee3ea0571ae55, type: 3}
   m_PrefabInstance: {fileID: 167712708}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &183442204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183442207}
+  - component: {fileID: 183442206}
+  - component: {fileID: 183442205}
+  m_Layer: 5
+  m_Name: giros
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &183442205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183442204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &183442206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183442204}
+  m_CullTransparentMesh: 1
+--- !u!224 &183442207
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183442204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 235469330}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &198238447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
@@ -1282,7 +1506,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 183442207}
+  - {fileID: 415553040}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1398,6 +1624,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (17)
@@ -1449,7 +1691,9 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000005, z: 0.0010000003}
   m_Center: {x: 0, y: 0, z: -0.00050000014}
+
 --- !u!1 &389804338
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1457,6 +1701,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
   - component: {fileID: 389804342}
   - component: {fileID: 389804341}
   - component: {fileID: 389804340}
@@ -1464,16 +1709,30 @@ GameObject:
   m_Layer: 0
   m_Name: FloorTrigger
   m_TagString: Void
+
+  - component: {fileID: 415553040}
+  - component: {fileID: 415553039}
+  - component: {fileID: 415553038}
+  m_Layer: 5
+  m_Name: monedas
+  m_TagString: Untagged
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!65 &389804339
 BoxCollider:
+
+--- !u!114 &415553038
+MonoBehaviour:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 389804338}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1525,18 +1784,112 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &389804341
 MeshFilter:
+=======
+  m_GameObject: {fileID: 415553037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &415553039
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 389804338}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &389804342
 Transform:
+
+  m_GameObject: {fileID: 415553037}
+  m_CullTransparentMesh: 1
+--- !u!224 &415553040
+RectTransform:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 389804338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.04, y: 1, z: 8.89}
@@ -1546,6 +1899,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+  m_GameObject: {fileID: 415553037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 235469330}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -16.7, y: -50}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+
 --- !u!1 &422820665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
@@ -1638,6 +2007,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eeeab7573590d594390f23e6792f7114, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -1580535799172915004, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bab3cb8b7449d145b4aaf986d9a0959, type: 2}
     - target: {fileID: 919132149155446097, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
       propertyPath: m_Name
       value: metal plate 1 (1)
@@ -1709,6 +2094,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (39)
@@ -1775,6 +2176,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (15)
@@ -1882,6 +2299,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (33)
@@ -1974,6 +2407,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (12)
@@ -2085,14 +2534,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.8365163, y: 0.12940954, z: -0.22414392, w: 0.48296285}
+  m_LocalPosition: {x: 66.6, y: 68, z: 78.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 120, y: 30, z: 0}
 --- !u!1001 &710301660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2144,6 +2593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
       propertyPath: m_Name
       value: acid land (1)
@@ -2216,8 +2669,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900805375}
-  m_Material: {fileID: 0}
+terial: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -2398,6 +2850,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3
@@ -2526,6 +2994,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (11)
@@ -2618,6 +3102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
       propertyPath: m_Name
       value: acid land
@@ -2710,6 +3198,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (31)
@@ -2802,6 +3306,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (13)
@@ -2930,6 +3450,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (10)
@@ -3084,6 +3620,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (5)
@@ -3403,6 +3955,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (8)
@@ -3617,6 +4185,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (32)
@@ -3709,6 +4293,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 44deb1b5a2424d0479b5c2487e34ebbe, type: 3}
       propertyPath: m_Name
       value: acid land (2)
@@ -3770,6 +4362,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (23)
@@ -3862,6 +4470,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (27)
@@ -3954,6 +4578,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05415e5452d38814882b94784be930da, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: eeeab7573590d594390f23e6792f7114, type: 2}
     - target: {fileID: 919132149155446097, guid: 05415e5452d38814882b94784be930da, type: 3}
       propertyPath: m_Name
       value: spike land (1)
@@ -3969,6 +4597,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 05415e5452d38814882b94784be930da, type: 3}
   m_PrefabInstance: {fileID: 1420027573}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1446311809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446311811}
+  - component: {fileID: 1446311810}
+  m_Layer: 0
+  m_Name: Directional Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!108 &1446311810
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446311809}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 0.88554645, g: 0.92227536, b: 0.9433962, a: 1}
+  m_Intensity: 3
+  m_Range: 47889.59
+  m_SpotAngle: 112
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1446311811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446311809}
+  m_LocalRotation: {x: 0.8535535, y: 0.1464466, z: -0.35355338, w: 0.35355338}
+  m_LocalPosition: {x: 7622, y: 1744, z: 9570}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 135, y: 45, z: 0}
 --- !u!1 &1484013066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
@@ -4056,6 +4778,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (9)
@@ -4148,6 +4886,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (1)
@@ -4276,6 +5030,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (30)
@@ -4378,6 +5148,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (16)
@@ -4470,6 +5256,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (4)
@@ -4593,6 +5395,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (35)
@@ -4654,6 +5472,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (40)
@@ -4715,6 +5549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05415e5452d38814882b94784be930da, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: eeeab7573590d594390f23e6792f7114, type: 2}
     - target: {fileID: 919132149155446097, guid: 05415e5452d38814882b94784be930da, type: 3}
       propertyPath: m_Name
       value: spike land
@@ -4905,6 +5743,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (26)
@@ -4997,6 +5851,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (28)
@@ -5094,6 +5964,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (20)
@@ -5186,6 +6072,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (2)
@@ -5352,6 +6254,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (21)
@@ -5506,6 +6424,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (7)
@@ -5598,6 +6532,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (3)
@@ -5659,6 +6609,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eeeab7573590d594390f23e6792f7114, type: 2}
     - target: {fileID: 919132149155446097, guid: 6abcca21eb43ea445b9916bce2b5a91c, type: 3}
       propertyPath: m_Name
       value: metal plate 1
@@ -5787,6 +6741,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (38)
@@ -5848,6 +6818,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (34)
@@ -5909,6 +6895,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (25)
@@ -6032,6 +7034,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (24)
@@ -6142,6 +7160,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (14)
@@ -6234,6 +7268,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (6)
@@ -6362,6 +7412,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 765d500872033404493ee3ea0571ae55, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf432a0f50d66b74f863ea991c978a84, type: 2}
     - target: {fileID: 919132149155446097, guid: 765d500872033404493ee3ea0571ae55, type: 3}
       propertyPath: m_Name
       value: metal plate 3 (22)

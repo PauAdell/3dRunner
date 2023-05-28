@@ -24,8 +24,11 @@ public class PlayerMovement : MonoBehaviour
     public bool god_mode;
     public bool auto_salto;
     public int grado_giro;
+
     public bool start;
     public bool salto_corto;
+    private int numgiros;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +45,20 @@ public class PlayerMovement : MonoBehaviour
         current = 0;
         god_mode = false;
         grado_giro = 0;
+
         in_anim = 0;
         auto_salto = false;
         start = false;
         myAnim.SetBool("start", false);
         gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         pos_ini = transform.position;
+
+        numgiros = 0;
+    }
+
+    public int getNumGiros() {
+        return numgiros;
+
     }
 
     // Update is called once per frame
@@ -172,12 +183,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (aprox)
             {
+
                 current = Mathf.MoveTowards(current, target, Time.deltaTime);
                 Vector3 pos;
                 if (tile == 1) pos = new Vector3(transform.position.x, transform.position.y, goalPosition.z);
                 else pos = new Vector3(goalPosition.x, transform.position.y, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, pos, current / target);
                 if (transform.position == pos) aprox = false;
+                girando = false;
+                numgiros += 1;
+                grado_giro = 0;
+                speed = 5;
+
             }
             if (salto_corto && in_anim == 0)
             {
