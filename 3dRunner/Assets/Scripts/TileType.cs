@@ -5,7 +5,6 @@ using UnityEngine;
 public class TileType : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public MeteoriteMovement meteoriteMovement;
     private float initial_speed;
 
     void Start()
@@ -19,7 +18,7 @@ public class TileType : MonoBehaviour
             playerMovement.goalPosition = other.bounds.center;
             playerMovement.tile = 3;
             playerMovement.giro = false;
-            playerMovement.speed = 5.0f;
+            if (playerMovement.is_grounded) playerMovement.speed = initial_speed;
             switch (other.gameObject.tag)
             {
                 case "RightTile":
@@ -49,14 +48,22 @@ public class TileType : MonoBehaviour
                     if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
                     break;
                 case "SlowTile":
-                    if (!playerMovement.god_mode) playerMovement.speed -= 2;
+                    if (!playerMovement.god_mode) playerMovement.speed -= 1;
                     break;
                 case "Trap":
-                    if (!playerMovement.god_mode) playerMovement.muerte = 1;
+                    if (!playerMovement.god_mode)
+                    {
+                        playerMovement.muerte = 1;
+                        playerMovement.in_anim = 0;
+                    }
                     break;
                 case "Trap2":
-                    if (!playerMovement.god_mode) playerMovement.muerte = 2;
-                    break;
+                    if (!playerMovement.god_mode)
+                    {
+                        playerMovement.muerte = 2;
+                        playerMovement.in_anim = 0;
+                    }
+                        break;
                 case "TileSalto":
                     playerMovement.tile = 3;
                     if (playerMovement.god_mode) playerMovement.auto_salto = true;
@@ -69,13 +76,7 @@ public class TileType : MonoBehaviour
                     playerMovement.muerte = 5;
                     gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
                     playerMovement.playerRb.isKinematic = true;
-                    break;
-                case "MeteoriteTile":
-                    meteoriteMovement.arrancar = true;
-                    playerMovement.tile = 3;
-                    meteoriteMovement.target = playerMovement.transform.position;
-                    meteoriteMovement.target.y += 1;
-                    break;
+                    break;         
             }
         }
     }
@@ -83,14 +84,25 @@ public class TileType : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
-        if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte != 5) playerMovement.muerte = 1;
-        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte != 5) playerMovement.muerte = 2;
+        if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
+            {
+                playerMovement.muerte = 1;
+                playerMovement.in_anim = 0;
+            }
+        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
+            {
+                playerMovement.muerte = 2;
+                playerMovement.in_anim = 0;
+            }
 
     }
     private void OnCollisionEnter(Collision collision)
     {
-            playerMovement.jump = 0;
+        playerMovement.jump = 0;
+        if (collision.gameObject.tag == "BasicTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "LeftTile")
+        {
             if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y) playerMovement.is_grounded = true;
+        }
          
     }
 

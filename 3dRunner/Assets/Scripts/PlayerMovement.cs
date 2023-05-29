@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Vector3 pos_ini;
+    public Quaternion rot_ini;
     public Animator myAnim;
     public bool is_grounded;
     public bool girando;
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public int jump;
     public Rigidbody playerRb;
-    private int in_anim;
+    public int in_anim;
     public int muerte;
     public float current, target;
     public Vector3 goalPosition;
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         myAnim.SetBool("start", false);
         gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         pos_ini = transform.position;
+        rot_ini = transform.rotation;
         numgiros = 0;
     }
 
@@ -62,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(jump);
         if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
@@ -107,8 +110,6 @@ public class PlayerMovement : MonoBehaviour
                 if (tile == 1 && action && !giro && is_grounded)
                 { 
                     current = transform.position.z;
-                    print(current);
-                    print(target);
                     if (current < target + 1.6)
                     {
                         girando = true;
@@ -129,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if ((action && jump < 2 && in_anim == 0) || (auto_salto && in_anim == 0))
                 {
-                    speed = 5;
+                    speed = 5.5f;
                     myAnim.StopPlayback();
                     myAnim.Play("Running jump");
                     playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
@@ -139,9 +140,8 @@ public class PlayerMovement : MonoBehaviour
                     if (tile != 4) auto_salto = false;
                     else tile = 3;
                 }
-                if (girando)
+                if (girando && is_grounded)
                 {
-                    print(transform.position.z);
                     speed = 4;
                     if (tile == 1)
                     {
@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
 
                 transform.Translate(0, 0, speed * Time.deltaTime);
 
-                if (aprox)
+                if (aprox && is_grounded)
                 {
                     current = Mathf.MoveTowards(current, target, Time.deltaTime);
                     Vector3 pos;
@@ -213,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
         playerRb.isKinematic = false;
         numgiros = 0;
         menuMuerte.SetActive(false);
+        transform.rotation = rot_ini;
     }
 
 }
