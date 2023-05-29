@@ -19,7 +19,7 @@ public class MeteoriteTrigger : MonoBehaviour
             meteoriteMovement.arrancar = true;
             playerMovement.tile = 3;
             meteoriteMovement.target = playerMovement.transform.position;
-            meteoriteMovement.target.y += 1;
+             meteoriteMovement.target.y = 1;
         } 
 
     }

@@ -16,7 +16,7 @@ public class TileType : MonoBehaviour
         if (playerMovement.muerte == 0)
         {
             playerMovement.goalPosition = other.bounds.center;
-            playerMovement.tile = 3;
+            if (!playerMovement.girando) playerMovement.tile = 3;
             playerMovement.giro = false;
             if (playerMovement.is_grounded) playerMovement.speed = initial_speed;
             switch (other.gameObject.tag)
@@ -29,7 +29,8 @@ public class TileType : MonoBehaviour
                         playerMovement.girando = true;
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
-                        playerMovement.current = transform.position.z;
+                        playerMovement.current = transform.position.z + 0.15f;
+                        playerMovement.timer_god = 100;
                     }
                     break;
                 case "LeftTile":
@@ -40,11 +41,11 @@ public class TileType : MonoBehaviour
                         playerMovement.girando = true;
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
-                        playerMovement.current = transform.position.z;
+                        playerMovement.current = transform.position.x + 0.15f;
+                        playerMovement.timer_god = 100;
                     }
                     break;
                 case "BasicTile":
-                    playerMovement.tile = 3;
                     if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
                     break;
                 case "SlowTile":
@@ -84,20 +85,22 @@ public class TileType : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
-        if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
+        else if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
             {
                 playerMovement.muerte = 1;
                 playerMovement.in_anim = 0;
             }
-        if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
+        else if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
             {
                 playerMovement.muerte = 2;
                 playerMovement.in_anim = 0;
             }
+        else if (other.CompareTag("BasicTile")) if (!playerMovement.girando) playerMovement.tile = 3;
 
     }
     private void OnCollisionEnter(Collision collision)
     {
+        print("entra");
         playerMovement.jump = 0;
         if (collision.gameObject.tag == "BasicTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "LeftTile")
         {

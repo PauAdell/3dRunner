@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public bool auto_salto;
     public int grado_giro;
     private int numgiros;
+    public int timer_god;
 
     public bool start;
     public bool salto_corto;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         jump = 0;
+        timer_god = 0;
         playerRb = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
         giro = false;
@@ -64,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(jump);
         if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
@@ -140,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
                     if (tile != 4) auto_salto = false;
                     else tile = 3;
                 }
-                if (girando && is_grounded)
+                if (girando && is_grounded && timer_god == 0)
                 {
-                    speed = 4;
+                    speed = 5;
                     if (tile == 1)
                     {
                         transform.Rotate(new Vector3(0f, 5f, 0f));
@@ -155,18 +156,21 @@ public class PlayerMovement : MonoBehaviour
                     }
                     if (grado_giro == 90 || grado_giro == -90)
                     {
+                        print("entra");
                         girando = false;
                         numgiros += 1;
                         grado_giro = 0;
+                        giro = false;
                         speed = 5;
                     }
                 }
+                if (timer_god > 0) timer_god -= 1;
                 if (in_anim > 0) --in_anim;
                 if (muerte > 0) in_anim = 0;
 
                 transform.Translate(0, 0, speed * Time.deltaTime);
 
-                if (aprox && is_grounded)
+                if (aprox && is_grounded && timer_god == 0)
                 {
                     current = Mathf.MoveTowards(current, target, Time.deltaTime);
                     Vector3 pos;
