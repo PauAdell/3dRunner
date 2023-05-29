@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                     myAnim.StopPlayback();
                     myAnim.Play("Running jump");
                     playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-                    in_anim = 250;
+                    in_anim = 200;
                     ++jump;
                     is_grounded = false;
                     if (tile != 4) auto_salto = false;
