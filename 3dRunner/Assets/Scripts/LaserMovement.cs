@@ -18,7 +18,8 @@ public class LaserMovement : MonoBehaviour
     void Update()
     {
         Vector3 aux = StartingPoint;
-        aux.z += blocksToMove * Mathf.Sin(Time.time * speed);
+        if (transform.rotation.y == -90) aux.z += blocksToMove * Mathf.Sin(Time.time * speed);
+        else if (transform.rotation.y == 0) aux.x += blocksToMove * Mathf.Sin(Time.time * speed);
         transform.position = aux;
     }
 }

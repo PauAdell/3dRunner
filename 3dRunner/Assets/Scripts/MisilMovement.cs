@@ -5,6 +5,7 @@ using UnityEngine;
 public class MisilMovement : MonoBehaviour
 {
     Vector3 ini_pos;
+    Quaternion rot_ini;
     public int tile;
     public bool girando;
     public bool giro;
@@ -24,6 +25,7 @@ public class MisilMovement : MonoBehaviour
         grado_giro = 0;
         ini_pos = transform.position;
         speed = 0;
+        rot_ini = transform.rotation;
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class MisilMovement : MonoBehaviour
         if (!playerMovement.start && transform.position != ini_pos)
         {
             transform.position = ini_pos;
+            transform.rotation = rot_ini;
             speed = 0;
         }
         if (playerMovement.muerte != 0)
@@ -41,22 +44,24 @@ public class MisilMovement : MonoBehaviour
             current = 0;
             aprox = false;
             grado_giro = 0;
+            speed = 0;
         }
-        if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        if (playerMovement.start)
+        else if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        else if (playerMovement.start)
         {
-            speed = 5;
+            if (playerMovement.speed != 3) speed = playerMovement.speed;
+            if (!playerMovement.is_grounded) speed = playerMovement.speed - 2.5f;
             if (girando)
             {
                 if (tile == 1)
                 {
-                    transform.Rotate(new Vector3(0f, 3f, 0f));
-                    grado_giro += 3;
+                    transform.Rotate(new Vector3(0f, 5f, 0f));
+                    grado_giro += 5;
                 }
                 else if (tile == 2)
                 {
-                    transform.Rotate(new Vector3(0f, -3f, 0f));
-                    grado_giro -= 3;
+                    transform.Rotate(new Vector3(0f, -5f, 0f));
+                    grado_giro -= 5;
                 }
                 if (grado_giro == 90 || grado_giro == -90)
                 {

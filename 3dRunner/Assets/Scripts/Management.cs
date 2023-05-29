@@ -27,6 +27,7 @@ public class Management : MonoBehaviour
             txtgiros.text = playerMovement.getNumGiros().ToString();
             txtmonedas.text = monedas.ToString();
         }
+        EndGame();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +40,13 @@ public class Management : MonoBehaviour
     }
 
     public void EndGame() {
-        if (monedas > topScore) topScore = monedas;
-        monedas = 0;
+        if (!playerMovement.start)
+        {
+            monedas = 0;
+        }
+        if (playerMovement.muerte == 5)
+        {
+            if (monedas > topScore) topScore = monedas;
+        }
     }
 }
