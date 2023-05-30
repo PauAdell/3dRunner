@@ -193,7 +193,6 @@ public class PlayerMovement : MonoBehaviour
                 if (muerte > 0) in_anim = 0;
                 if (time_to_gir > 0) --time_to_gir;
 
-                transform.Translate(0, 0, speed * Time.deltaTime);
                 if (!cayendo) transform.Translate(0, 0, speed * Time.deltaTime);
 
                 if (aprox && is_grounded && timer_god == 0)
