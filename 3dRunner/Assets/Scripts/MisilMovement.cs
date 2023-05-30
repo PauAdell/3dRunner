@@ -49,11 +49,13 @@ public class MisilMovement : MonoBehaviour
         else if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         else if (playerMovement.start)
         {
-            speed = playerMovement.speed;
-            if (playerMovement.god_mode) speed -= 1.1f;
-            if (!playerMovement.is_grounded) speed -= 1.5f;
+            speed = playerMovement.speed - 0.5f;
+            if (playerMovement.speed < playerMovement.initial_speed) speed += 1f;
+            if (playerMovement.god_mode) speed -= 0.5f;
+            if (!playerMovement.is_grounded) speed -= 0.5f;
             if (girando)
             {
+                speed = playerMovement.speed - 1f;
                 if (tile == 1)
                 {
                     transform.Rotate(new Vector3(0f, 5f, 0f));

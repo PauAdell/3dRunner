@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public bool is_grounded;
     public bool girando;
     public int tile;
+    public float initial_speed;
     private bool action;
     private bool action_g;
     public bool giro;
@@ -27,16 +28,22 @@ public class PlayerMovement : MonoBehaviour
     public int grado_giro;
     private int numgiros;
     public int timer_god;
+    public int time_to_gir;
 
     public bool start;
     public bool salto_corto;
 
     public GameObject menuMuerte;
+    public GameObject monedas;
+    public GameObject giros;
+    public GameObject imagen_m;
+    public GameObject imagen_g;
 
     // Start is called before the first frame update
     void Start()
     {
         jump = 0;
+        initial_speed = speed;
         timer_god = 0;
         playerRb = GetComponent<Rigidbody>();
         myAnim = GetComponent<Animator>();
@@ -57,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
         pos_ini = transform.position;
         rot_ini = transform.rotation;
         numgiros = 0;
+        time_to_gir = 0;
+        Application.targetFrameRate = 200;
+        monedas.SetActive(true);
+        giros.SetActive(true);
+        imagen_g.SetActive(true);
+        imagen_m.SetActive(true);
     }
 
     public int getNumGiros() {
@@ -66,10 +79,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
+        if (transform.position.y + 0.05 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
             menuMuerte.SetActive(true);
+            monedas.SetActive(false);
+            giros.SetActive(false);
+            imagen_g.SetActive(false);
+            imagen_m.SetActive(false);
             PauseMenu.jugadormort = true;
         }
         else
@@ -88,14 +105,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 myAnim.StopPlayback();
                 myAnim.Play("Walk to die");
-                in_anim = 900;
+                in_anim = 425;
                 speed = 0;
             }
             else if (muerte == 2 && in_anim == 0)
             {
                 myAnim.StopPlayback();
                 myAnim.Play("Dying Backwards");
-                in_anim = 900;
+                in_anim = 425;
                 speed = 0;
             }
             else if (muerte != 0 && in_anim != 0)
@@ -108,20 +125,20 @@ public class PlayerMovement : MonoBehaviour
                 action_g = Input.GetKeyDown(KeyCode.G);
                 if (action_g) god_mode = !god_mode;
                 action = Input.GetKeyDown(KeyCode.Space);
-                if (tile == 1 && action && !giro && is_grounded)
+                if (tile == 1 && action && !giro && is_grounded && time_to_gir == 0)
                 { 
                     current = transform.position.z;
-                    if (current < target + 1.6)
+                    if (current < target + 1.7)
                     {
                         girando = true;
                         giro = true;
                         aprox = true;
                     }
                 }
-                else if (tile == 2 && action && !giro && is_grounded)
+                else if (tile == 2 && action && !giro && is_grounded && time_to_gir == 0)
                 {
                     current = transform.position.x;
-                    if (current < target + 1.6)
+                    if (current < target + 1.7)
                     {
                         girando = true;
                         giro = true;
@@ -135,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
                     myAnim.StopPlayback();
                     myAnim.Play("Running jump");
                     playerRb.AddForce(new Vector3(0, 0.5f, 0) * jumpForce, ForceMode.Impulse);
-                    in_anim = 200;
+                    in_anim = 90;
                     ++jump;
                     is_grounded = false;
                     if (tile != 4) auto_salto = false;
@@ -143,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (girando && is_grounded && timer_god == 0)
                 {
-                    speed = 5;
+                    speed = 5.5f;
                     if (tile == 1)
                     {
                         transform.Rotate(new Vector3(0f, 5f, 0f));
@@ -156,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     if (grado_giro == 90 || grado_giro == -90)
                     {
-                        print("entra");
+                        time_to_gir = 200;
                         girando = false;
                         numgiros += 1;
                         grado_giro = 0;
@@ -167,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
                 if (timer_god > 0) timer_god -= 1;
                 if (in_anim > 0) --in_anim;
                 if (muerte > 0) in_anim = 0;
+                if (time_to_gir > 0) --time_to_gir;
 
                 transform.Translate(0, 0, speed * Time.deltaTime);
 
@@ -183,10 +201,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     salto_corto = false;
                     playerRb.AddForce(new Vector3(0, 0, -2f) * jumpForce, ForceMode.Impulse);
-                    in_anim = 1000;
+                    in_anim = 600;
                     speed = 1;
                 }
                 else if (is_grounded && in_anim == 0) myAnim.Play("running");
+                if (!is_grounded) speed = initial_speed;
 
             }
         }
@@ -201,6 +220,7 @@ public class PlayerMovement : MonoBehaviour
         giro = false;
         girando = false;
         muerte = 0;
+        time_to_gir = 0;
         aprox = false;
         is_grounded = true;
         current = 0;
