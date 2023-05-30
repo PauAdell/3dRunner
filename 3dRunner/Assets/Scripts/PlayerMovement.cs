@@ -32,16 +32,20 @@ public class PlayerMovement : MonoBehaviour
 
     public bool start;
     public bool salto_corto;
+    public Material novaTextura;
 
+    private GameObject[] tilesdegiro;
     public GameObject menuMuerte;
     public GameObject monedas;
     public GameObject giros;
     public GameObject imagen_m;
     public GameObject imagen_g;
+    public SoundEffects sounds;
 
     // Start is called before the first frame update
     void Start()
     {
+        sounds.playPlayMusic();
         jump = 0;
         initial_speed = speed;
         timer_god = 0;
@@ -155,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
                     in_anim = 90;
                     ++jump;
                     is_grounded = false;
+                    sounds.playJumpSound();
                     if (tile != 4) auto_salto = false;
                     else tile = 3;
                 }
@@ -238,6 +243,18 @@ public class PlayerMovement : MonoBehaviour
         numgiros = 0;
         menuMuerte.SetActive(false);
         transform.rotation = rot_ini;
+        sounds.stopMusic();
+        sounds.playPlayMusic();
+        tilesdegiro = GameObject.FindGameObjectsWithTag("RightTile");
+        foreach (GameObject t in tilesdegiro)
+        {
+            t.gameObject.GetComponent<Renderer>().material = novaTextura;
+        }
+        tilesdegiro = GameObject.FindGameObjectsWithTag("LeftTile");
+        foreach (GameObject t in tilesdegiro)
+        {
+            t.gameObject.GetComponent<Renderer>().material = novaTextura;
+        }
     }
 
 }
