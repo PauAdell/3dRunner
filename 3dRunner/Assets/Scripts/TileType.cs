@@ -26,14 +26,16 @@ public class TileType : MonoBehaviour
                     playerMovement.target = playerMovement.transform.position.z + 1;
                     if (playerMovement.god_mode)
                     {
+                        print("entra");
                         playerMovement.girando = true;
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
                         playerMovement.current = transform.position.z + 0.15f;
-                        playerMovement.timer_god = 100;
+                        playerMovement.timer_god = 25;
                     }
                     break;
                 case "LeftTile":
+                    print("entra");
                     playerMovement.tile = 2;
                     playerMovement.target = playerMovement.transform.position.x + 1;
                     if (playerMovement.god_mode)
@@ -42,14 +44,15 @@ public class TileType : MonoBehaviour
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
                         playerMovement.current = transform.position.x + 0.15f;
-                        playerMovement.timer_god = 100;
+                        playerMovement.timer_god = 25;
                     }
                     break;
                 case "BasicTile":
                     if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
+                    print("entra2");
                     break;
                 case "SlowTile":
-                    if (!playerMovement.god_mode) playerMovement.speed -= 1;
+                    if (!playerMovement.god_mode) playerMovement.speed -= 2;
                     break;
                 case "Trap":
                     if (!playerMovement.god_mode)
@@ -66,7 +69,6 @@ public class TileType : MonoBehaviour
                     }
                         break;
                 case "TileSalto":
-                    playerMovement.tile = 3;
                     if (playerMovement.god_mode) playerMovement.auto_salto = true;
                     break;
                 case "TileSalto2":
@@ -84,7 +86,7 @@ public class TileType : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 1;
+        if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 2;
         else if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
             {
                 playerMovement.muerte = 1;
@@ -100,7 +102,6 @@ public class TileType : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        print("entra");
         playerMovement.jump = 0;
         if (collision.gameObject.tag == "BasicTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "LeftTile")
         {
