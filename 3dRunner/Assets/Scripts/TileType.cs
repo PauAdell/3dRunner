@@ -26,7 +26,6 @@ public class TileType : MonoBehaviour
                     playerMovement.target = playerMovement.transform.position.z + 1;
                     if (playerMovement.god_mode)
                     {
-                        print("entra");
                         playerMovement.girando = true;
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
@@ -35,7 +34,6 @@ public class TileType : MonoBehaviour
                     }
                     break;
                 case "LeftTile":
-                    print("entra");
                     playerMovement.tile = 2;
                     playerMovement.target = playerMovement.transform.position.x + 1;
                     if (playerMovement.god_mode)
@@ -48,8 +46,8 @@ public class TileType : MonoBehaviour
                     }
                     break;
                 case "BasicTile":
-                    if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
-                    print("entra2");
+                    if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y)  playerMovement.salto_corto = true;
+
                     break;
                 case "SlowTile":
                     if (!playerMovement.god_mode) playerMovement.speed -= 2;
@@ -102,10 +100,12 @@ public class TileType : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+
         playerMovement.jump = 0;
         if (collision.gameObject.tag == "BasicTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "LeftTile")
         {
-            if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y) playerMovement.is_grounded = true;
+            if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y && playerMovement.transform.position.y < 0.3) playerMovement.is_grounded = true;
         }
          
     }

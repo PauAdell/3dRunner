@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject giros;
     public GameObject imagen_m;
     public GameObject imagen_g;
+    public bool cayendo;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y + 0.05 < pos_ini.y) is_grounded = false;
+        if (transform.position.y + 0.1 < pos_ini.y) is_grounded = false;
         if (muerte == 5)
         {
             menuMuerte.SetActive(true);
@@ -125,10 +126,11 @@ public class PlayerMovement : MonoBehaviour
                 action_g = Input.GetKeyDown(KeyCode.G);
                 if (action_g) god_mode = !god_mode;
                 action = Input.GetKeyDown(KeyCode.Space);
+                if (god_mode) action = false;
                 if (tile == 1 && action && !giro && is_grounded && time_to_gir == 0)
                 { 
                     current = transform.position.z;
-                    if (current < target + 1.7)
+                    if (current < target + 1.8)
                     {
                         girando = true;
                         giro = true;
@@ -138,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                 else if (tile == 2 && action && !giro && is_grounded && time_to_gir == 0)
                 {
                     current = transform.position.x;
-                    if (current < target + 1.7)
+                    if (current < target + 1.8)
                     {
                         girando = true;
                         giro = true;
@@ -186,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
                 if (muerte > 0) in_anim = 0;
                 if (time_to_gir > 0) --time_to_gir;
 
-                transform.Translate(0, 0, speed * Time.deltaTime);
+                if (!cayendo) transform.Translate(0, 0, speed * Time.deltaTime);
 
                 if (aprox && is_grounded && timer_god == 0)
                 {
@@ -200,9 +202,11 @@ public class PlayerMovement : MonoBehaviour
                 if (salto_corto && in_anim == 0)
                 {
                     salto_corto = false;
-                    playerRb.AddForce(new Vector3(0, 0, -2f) * jumpForce, ForceMode.Impulse);
-                    in_anim = 600;
+                    myAnim.Play("falling");
+                    playerRb.AddForce(new Vector3(0, 0, -2f) * 5, ForceMode.Impulse);
+                    in_anim = 300;
                     speed = 1;
+                    cayendo = true;
                 }
                 else if (is_grounded && in_anim == 0) myAnim.Play("running");
                 if (!is_grounded) speed = initial_speed;
@@ -228,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
         god_mode = false;
         grado_giro = 0;
         auto_salto = false;
+        speed = initial_speed;
         start = false;
         myAnim.SetBool("start", false);
         gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
@@ -238,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
         numgiros = 0;
         menuMuerte.SetActive(false);
         transform.rotation = rot_ini;
+        cayendo = false;
     }
 
 }
