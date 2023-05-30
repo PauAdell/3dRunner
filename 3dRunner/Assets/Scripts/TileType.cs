@@ -6,10 +6,13 @@ public class TileType : MonoBehaviour
 {
     public PlayerMovement playerMovement;
     private float initial_speed;
+    private bool canvitext;
+    public Material novaTextura;
 
     void Start()
     {
         initial_speed = playerMovement.speed;
+        canvitext = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,11 +25,11 @@ public class TileType : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "RightTile":
+                    canvitext = true;
                     playerMovement.tile = 1;
                     playerMovement.target = playerMovement.transform.position.z + 1;
                     if (playerMovement.god_mode)
                     {
-                        print("entra");
                         playerMovement.girando = true;
                         playerMovement.giro = true;
                         playerMovement.aprox = true;
@@ -35,7 +38,7 @@ public class TileType : MonoBehaviour
                     }
                     break;
                 case "LeftTile":
-                    print("entra");
+                    canvitext = true;
                     playerMovement.tile = 2;
                     playerMovement.target = playerMovement.transform.position.x + 1;
                     if (playerMovement.god_mode)
@@ -49,7 +52,6 @@ public class TileType : MonoBehaviour
                     break;
                 case "BasicTile":
                     if (playerMovement.transform.position.y + 0.3 < playerMovement.pos_ini.y) playerMovement.salto_corto = true;
-                    print("entra2");
                     break;
                 case "SlowTile":
                     if (!playerMovement.god_mode) playerMovement.speed -= 2;
@@ -86,6 +88,13 @@ public class TileType : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.tag == "LeftTile" || other.tag == "RightTile") {
+
+            if (playerMovement.girando && canvitext) {
+                other.gameObject.GetComponent<Renderer>().material = novaTextura;
+                canvitext = false;
+            }
+        }
         if (other.CompareTag("SlowTile")) if (playerMovement.speed == initial_speed && !playerMovement.god_mode) playerMovement.speed -= 2;
         else if (other.CompareTag("Trap")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
             {
@@ -105,7 +114,7 @@ public class TileType : MonoBehaviour
         playerMovement.jump = 0;
         if (collision.gameObject.tag == "BasicTile" || collision.gameObject.tag == "RightTile" || collision.gameObject.tag == "LeftTile")
         {
-            if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y) playerMovement.is_grounded = true;
+            if (playerMovement.transform.position.y + 0.1 >= playerMovement.pos_ini.y && playerMovement.transform.position.y < 0.3) playerMovement.is_grounded = true;
         }
          
     }
