@@ -94,7 +94,6 @@ public class TileType : MonoBehaviour
         if (other.tag == "LeftTile" || other.tag == "RightTile") {
 
             if (playerMovement.girando && canvitext) {
-                print("holabondia");
                 other.gameObject.GetComponent<Renderer>().material = novaTextura;
                 canvitext = false;
             }
