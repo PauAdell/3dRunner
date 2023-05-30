@@ -213,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
                     speed = 1;
                     cayendo = true;
                 }
-                else if (is_grounded && in_anim == 0) myAnim.Play("running");
+                else if (is_grounded && in_anim == 0 && transform.position.y <= pos_ini.y + 0.1) myAnim.Play("running");
                 if (!is_grounded) speed = initial_speed;
 
             }
@@ -251,6 +251,10 @@ public class PlayerMovement : MonoBehaviour
         sounds.stopMusic();
         sounds.playPlayMusic();
         cayendo = false;
+        monedas.SetActive(true);
+        giros.SetActive(true);
+        imagen_g.SetActive(true);
+        imagen_m.SetActive(true);
         tilesdegiro = GameObject.FindGameObjectsWithTag("RightTile");
         foreach (GameObject t in tilesdegiro)
         {
