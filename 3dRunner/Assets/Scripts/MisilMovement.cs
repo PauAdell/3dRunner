@@ -51,7 +51,7 @@ public class MisilMovement : MonoBehaviour
         {
             speed = playerMovement.speed - 0.5f;
             if (playerMovement.speed < playerMovement.initial_speed) speed += 1f;
-            if (playerMovement.god_mode) speed += 0.2f;
+            if (playerMovement.god_mode) speed += 0.05f;
             if (!playerMovement.is_grounded) speed -= 0.2f;
             if (girando)
             {

@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public bool start;
     public bool salto_corto;
     public Material novaTextura;
+    public bool victory;
+    bool menu_victoria;
 
     private GameObject[] tilesdegiro;
     public GameObject menuMuerte;
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         sounds.playPlayMusic();
         jump = 0;
+        victory = false;
         initial_speed = speed;
         timer_god = 0;
         playerRb = GetComponent<Rigidbody>();
@@ -93,6 +96,12 @@ public class PlayerMovement : MonoBehaviour
             imagen_g.SetActive(false);
             imagen_m.SetActive(false);
             PauseMenu.jugadormort = true;
+        }
+        else if (victory)
+        {
+            myAnim.Play("Victory");
+            if (in_anim == 0) menu_victoria = true;
+
         }
         else
         {
@@ -215,7 +224,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (is_grounded && in_anim == 0 && transform.position.y <= pos_ini.y + 0.1) myAnim.Play("running");
                 if (!is_grounded) speed = initial_speed;
-
             }
         }
     }
@@ -244,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = pos_ini;
         myAnim.Play("Idle");
         salto_corto = false;
+        victory = false;
         playerRb.isKinematic = false;
         numgiros = 0;
         menuMuerte.SetActive(false);
