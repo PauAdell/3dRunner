@@ -15,6 +15,7 @@ public class MeteoriteMovement : MonoBehaviour
         arrancar = false;
         speed = 3;
         ini_pos = transform.position;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -23,8 +24,10 @@ public class MeteoriteMovement : MonoBehaviour
         if (!playerMovement.start)
         {
             arrancar = false;
-            transform.position = ini_pos;      
+            transform.position = ini_pos;
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
         else if (arrancar && playerMovement.muerte == 0) transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (transform.position == target) gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }
