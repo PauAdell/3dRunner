@@ -109,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
             giros.SetActive(false);
             imagen_g.SetActive(false);
             imagen_m.SetActive(false);
-
         }
         else
         {
