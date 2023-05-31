@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject[] tilesdegiro;
     public GameObject menuMuerte;
+    public GameObject menuWin;
     public GameObject monedas;
     public GameObject giros;
     public GameObject imagen_m;
@@ -100,7 +101,12 @@ public class PlayerMovement : MonoBehaviour
         else if (victory)
         {
             myAnim.Play("Victory");
-            if (in_anim == 0) menu_victoria = true;
+            menu_victoria = true;
+            menuWin.SetActive(true);
+            monedas.SetActive(false);
+            giros.SetActive(false);
+            imagen_g.SetActive(false);
+            imagen_m.SetActive(false);
 
         }
         else
@@ -230,6 +236,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void startFromZero()
     {
+        if (menu_victoria) {
+            menuWin.SetActive(false);
+            menu_victoria = false;
+        }
         PauseMenu.jugadormort = false;
         jump = 0;
         playerRb = GetComponent<Rigidbody>();

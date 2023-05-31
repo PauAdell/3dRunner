@@ -10,6 +10,7 @@ public class Management : MonoBehaviour
     public Text txtgiros;
     public Text txtmonedas;
     public Text txtTopScore;
+    public Text txtTopScore2;
 
     public PlayerMovement playerMovement;
 
@@ -32,6 +33,7 @@ public class Management : MonoBehaviour
             txtgiros.text = playerMovement.getNumGiros().ToString();
             txtmonedas.text = monedas.ToString();
             txtTopScore.text = PlayerPrefs.GetInt("HighScore").ToString();
+            txtTopScore2.text = PlayerPrefs.GetInt("HighScore").ToString();
         }
         EndGame();
     }
@@ -42,6 +44,11 @@ public class Management : MonoBehaviour
         {
             other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             monedas += 1;
+            if (monedas > topScore)
+            {
+                topScore = monedas;
+                PlayerPrefs.SetInt("HighScore", topScore);
+            }
         }
     }
 
