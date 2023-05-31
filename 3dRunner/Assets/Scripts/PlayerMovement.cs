@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject giros;
     public GameObject imagen_m;
     public GameObject imagen_g;
+    public GameObject pressstarttxt;
     public SoundEffects sounds;
 
 
@@ -79,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         giros.SetActive(true);
         imagen_g.SetActive(true);
         imagen_m.SetActive(true);
+        pressstarttxt.SetActive(true);
     }
 
     public int getNumGiros() {
@@ -230,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (is_grounded && in_anim == 0 && transform.position.y <= pos_ini.y + 0.1) myAnim.Play("running");
                 if (!is_grounded) speed = initial_speed;
+                if (start) pressstarttxt.SetActive(false);
             }
         }
     }
@@ -274,6 +277,7 @@ public class PlayerMovement : MonoBehaviour
         giros.SetActive(true);
         imagen_g.SetActive(true);
         imagen_m.SetActive(true);
+        pressstarttxt.SetActive(true);
         tilesdegiro = GameObject.FindGameObjectsWithTag("RightTile");
         foreach (GameObject t in tilesdegiro)
         {
