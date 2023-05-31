@@ -16,6 +16,7 @@ TagManager:
   - TileSalto2
   - MeteoriteTile
   - StopPar
+  - Victory
   layers:
   - Default
   - TransparentFX

@@ -81,7 +81,14 @@ public class TileType : MonoBehaviour
                     playerMovement.muerte = 5;
                     gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
                     playerMovement.playerRb.isKinematic = true;
-                    break;         
+                    break;
+                case "Victory":
+                    playerMovement.victory = true;
+                    playerMovement.in_anim = 300;
+                    playerMovement.speed = 0;
+                    Vector3 tp = new Vector3(176, -1, 197);
+                    playerMovement.transform.position = tp;
+                    break;
             }
         }
     }
