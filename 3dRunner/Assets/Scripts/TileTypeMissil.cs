@@ -37,6 +37,7 @@ public class TileTypeMissil : MonoBehaviour
                 misilMovement.current = transform.position.z;
                 break;
         }
+
     }
     private void OnCollisionEnter(Collision other)
     {

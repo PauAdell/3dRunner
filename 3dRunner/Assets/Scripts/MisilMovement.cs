@@ -55,6 +55,7 @@ public class MisilMovement : MonoBehaviour
             if (!playerMovement.is_grounded) speed -= 0.2f;
             if (girando)
             {
+                gameObject.GetComponent<ParticleSystem>().Stop();
                 speed = playerMovement.speed - 1f;
                 if (tile == 1)
                 {
@@ -70,6 +71,7 @@ public class MisilMovement : MonoBehaviour
                 {
                     girando = false;
                     grado_giro = 0;
+                    gameObject.GetComponent<ParticleSystem>().Play();
                 }
             }
             transform.Translate(0, 0, speed * Time.deltaTime);
