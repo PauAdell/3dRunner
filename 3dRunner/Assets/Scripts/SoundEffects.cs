@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundEffects : MonoBehaviour
 {
@@ -9,13 +10,25 @@ public class SoundEffects : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource menuMusic;
     public AudioSource playMusic;
-    public AudioSource deathSound;
+    [SerializeField] AudioSource deathSound;
+
+    public Slider volumeSlider;
     // Start is called before the first frame update
 
     private void Start()
     {
         menusonant = false;
         jocsonant = false;
+        AudioListener.volume = volumeSlider.value;
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 0.5f);
+            Load();
+        }
+        else {
+            Load();
+        }
+
     }
     public void playDeathSound() {
         deathSound.Play();
@@ -40,5 +53,19 @@ public class SoundEffects : MonoBehaviour
     public void stopMusic() {
         if (jocsonant) playMusic.Stop();
         if (menusonant) menuMusic.Stop();
+    }
+
+    public void ChangeVolume() {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    private void Save() {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }
