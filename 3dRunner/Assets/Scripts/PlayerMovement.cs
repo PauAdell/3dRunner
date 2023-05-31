@@ -38,10 +38,12 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject[] tilesdegiro;
     public GameObject menuMuerte;
+    public GameObject menuWin;
     public GameObject monedas;
     public GameObject giros;
     public GameObject imagen_m;
     public GameObject imagen_g;
+    public GameObject pressstarttxt;
     public SoundEffects sounds;
 
 
@@ -78,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         giros.SetActive(true);
         imagen_g.SetActive(true);
         imagen_m.SetActive(true);
+        pressstarttxt.SetActive(true);
     }
 
     public int getNumGiros() {
@@ -100,7 +103,12 @@ public class PlayerMovement : MonoBehaviour
         else if (victory)
         {
             myAnim.Play("Victory");
-            if (in_anim == 0) menu_victoria = true;
+            menu_victoria = true;
+            menuWin.SetActive(true);
+            monedas.SetActive(false);
+            giros.SetActive(false);
+            imagen_g.SetActive(false);
+            imagen_m.SetActive(false);
 
         }
         else
@@ -224,12 +232,17 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (is_grounded && in_anim == 0 && transform.position.y <= pos_ini.y + 0.1) myAnim.Play("running");
                 if (!is_grounded) speed = initial_speed;
+                if (start) pressstarttxt.SetActive(false);
             }
         }
     }
 
     public void startFromZero()
     {
+        if (menu_victoria) {
+            menuWin.SetActive(false);
+            menu_victoria = false;
+        }
         PauseMenu.jugadormort = false;
         jump = 0;
         playerRb = GetComponent<Rigidbody>();
@@ -264,6 +277,7 @@ public class PlayerMovement : MonoBehaviour
         giros.SetActive(true);
         imagen_g.SetActive(true);
         imagen_m.SetActive(true);
+        pressstarttxt.SetActive(true);
         tilesdegiro = GameObject.FindGameObjectsWithTag("RightTile");
         foreach (GameObject t in tilesdegiro)
         {
