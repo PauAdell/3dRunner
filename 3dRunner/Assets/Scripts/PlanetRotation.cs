@@ -8,7 +8,7 @@ public class PlanetRotation : MonoBehaviour
     public float speed;
     void Start()
     {
-        speed = Random.Range(20, 50);
+        speed = Random.Range(5, 15);
     }
 
     // Update is called once per frame
