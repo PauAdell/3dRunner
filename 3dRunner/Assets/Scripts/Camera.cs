@@ -5,8 +5,8 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public Transform target;
-    public float distance = 50.0f;
-    public float heightOffset = 30.0f;
+    public float distance = 60.0f;
+    public float heightOffset = 40.0f;
     public float cameraDelay = 0.02f;
 
     // Update is called once per frame

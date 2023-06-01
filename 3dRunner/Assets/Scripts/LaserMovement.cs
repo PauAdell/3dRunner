@@ -22,6 +22,6 @@ public class LaserMovement : MonoBehaviour
         Vector3 aux = StartingPoint;
         if (transform.rotation.y != 0) aux.z += blocksToMove * Mathf.Sin(Time.time * speed);
         else if (transform.rotation.y == 0) aux.x += blocksToMove * Mathf.Sin(Time.time * speed);
-        transform.position = aux;
+        if (playerMovement.muerte == 0) transform.position = aux;
     }
 }
