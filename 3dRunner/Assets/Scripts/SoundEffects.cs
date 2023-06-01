@@ -8,6 +8,7 @@ public class SoundEffects : MonoBehaviour
     private bool menusonant;
     private bool jocsonant;
     public AudioSource jumpSound;
+    public AudioSource coinSound;
     public AudioSource menuMusic;
     public AudioSource playMusic;
     [SerializeField] AudioSource deathSound;
@@ -20,6 +21,8 @@ public class SoundEffects : MonoBehaviour
         menusonant = false;
         jocsonant = false;
         AudioListener.volume = volumeSlider.value;
+        playMusic.volume = 0.1f;
+        coinSound.volume = 0.6f;
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 0.5f);
@@ -36,6 +39,9 @@ public class SoundEffects : MonoBehaviour
     public void playJumpSound()
     {
         jumpSound.Play();
+    }
+    public void playCoinSound(){
+        coinSound.Play();
     }
 
     public void playMenuMusic()
