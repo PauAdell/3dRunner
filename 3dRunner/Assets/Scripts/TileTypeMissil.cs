@@ -11,6 +11,7 @@ public class TileTypeMissil : MonoBehaviour
     void Start()
     {
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        gameObject.GetComponent<ParticleSystem>().Play();
     }
 
     // Update is called once per frame
@@ -43,5 +44,6 @@ public class TileTypeMissil : MonoBehaviour
     {
             if (!playerMovement.god_mode) playerMovement.muerte = 1;
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<ParticleSystem>().Stop();
     }
 }

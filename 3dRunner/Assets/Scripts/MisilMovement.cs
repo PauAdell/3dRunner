@@ -46,13 +46,22 @@ public class MisilMovement : MonoBehaviour
             grado_giro = 0;
             speed = 0;
         }
-        else if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        if (playerMovement.victory || playerMovement.muerte != 0) gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        else if (!playerMovement.start)
+        {
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+            gameObject.GetComponent<ParticleSystem>().Play();
+        }
+            if (playerMovement.victory || playerMovement.muerte != 0)
+        {
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<ParticleSystem>().Stop();
+        }
         else if (playerMovement.start)
         {
-            speed = playerMovement.speed - 0.5f;
+            speed = playerMovement.speed - 0.4f;
+            if (!playerMovement.god_mode) speed -= 0.4f;
             if (playerMovement.speed < playerMovement.initial_speed) speed += 1f;
-            if (!playerMovement.is_grounded) speed -= 0.2f;
+            if (!playerMovement.is_grounded) speed -= 0.4f;
             if (girando)
             {
                 gameObject.GetComponent<ParticleSystem>().Stop();
@@ -82,8 +91,8 @@ public class MisilMovement : MonoBehaviour
                 if (tile == 1) pos = new Vector3(transform.position.x, transform.position.y, goalPosition.z);
                 else pos = new Vector3(goalPosition.x, transform.position.y, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, pos, current / target);
-                if (transform.position == pos) aprox = false;        
-            }          
+                if (transform.position == pos) aprox = false;
+            }
         }
     }
 }
