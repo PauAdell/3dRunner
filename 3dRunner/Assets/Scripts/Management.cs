@@ -13,6 +13,7 @@ public class Management : MonoBehaviour
     public Text txtTopScore2;
 
     public PlayerMovement playerMovement;
+    public SoundEffects sounds;
 
     bool playing;
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class Management : MonoBehaviour
         {
             other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             monedas += 1;
+            sounds.playCoinSound();
             if (monedas > topScore)
             {
                 topScore = monedas;
