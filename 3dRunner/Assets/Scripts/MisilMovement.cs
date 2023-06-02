@@ -59,8 +59,10 @@ public class MisilMovement : MonoBehaviour
         else if (playerMovement.start)
         {
             speed = playerMovement.speed - 0.6f;
-            if (playerMovement.speed < playerMovement.initial_speed) speed += 1f;
-            if (!playerMovement.is_grounded && !playerMovement.god_mode) speed -= 0.4f;
+            if (!playerMovement.god_mode && playerMovement.transform.position.z <= 74) speed = speed - 0.2f;
+            else if (!playerMovement.god_mode) speed = speed + 0.25f;
+            if (playerMovement.speed < playerMovement.initial_speed) speed += 1.5f;
+            if (!playerMovement.is_grounded && !playerMovement.god_mode) speed -= 0.2f;
             if (girando)
             {
                 gameObject.GetComponent<ParticleSystem>().Stop();
