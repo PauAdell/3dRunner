@@ -16,8 +16,13 @@ public class CoinMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerMovement.start) gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+
+        if (!playerMovement.start)
+        {
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        }
         transform.Rotate(new Vector3(0f,  2.5f, 0f));
         transform.position = _startPosition + new Vector3(0.0f, Mathf.Sin(Time.time)/2f, 0.0f);
     }
+
 }

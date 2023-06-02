@@ -30,6 +30,7 @@ public class Camera : MonoBehaviour
         Vector3 followPos;
         if (!playerMovement.start)
         {
+            empieza = false;
             forward = new Vector3(0f, 0f, 1f);
             //followPos.y += heightOffset;
             followPos = pos;
@@ -40,7 +41,6 @@ public class Camera : MonoBehaviour
         }
         else
         {
-            print(empieza);
             forward = new Vector3(0f, 0f, 1f);
             followPos = target.position + forward * distance;
             followPos.y += heightOffset;
@@ -48,9 +48,7 @@ public class Camera : MonoBehaviour
             Vector3 pos_aux = transform.position + (followPos - transform.position);
             if (!empieza) transform.position = Vector3.Lerp(transform.position, pos_aux, 0.01f);
             else transform.position = pos_aux;
-            if (transform.position.z >= 17) empieza = true;
-            print(transform.position);
-            print(pos_aux);
+            if (transform.position.z >= 16.5) empieza = true;
             transform.LookAt(target.transform);
         }
     }
