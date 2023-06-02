@@ -9,11 +9,12 @@ public class MeteoriteTrigger : MonoBehaviour
     private int tempsdeWarning;
     public FloatingWarining warning;
     private bool resetejat;
+    public SoundEffects sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        tempsdeWarning = 250*2;
+        tempsdeWarning = 150*2;
         resetejat = true;
     }
 
@@ -25,6 +26,7 @@ public class MeteoriteTrigger : MonoBehaviour
             meteoriteMovement.target = playerMovement.transform.position;
             meteoriteMovement.target.y = 1;
             warning.makeWarnAppear();
+            sound.playWarining();
         } 
         
     }
