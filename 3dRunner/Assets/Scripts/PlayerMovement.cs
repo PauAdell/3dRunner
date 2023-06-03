@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
             else if (muerte == 1 && in_anim == 0)
             {
                 myAnim.StopPlayback();
+                sounds.playDeathSound();
                 if (!is_grounded) playerRb.AddForce(new Vector3(0, -0.5f, 0) * jumpForce, ForceMode.Impulse);
                 myAnim.Play("Walk to die");
                 in_anim = 425;
@@ -133,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
             else if (muerte == 2 && in_anim == 0)
             {
                 myAnim.StopPlayback();
+                sounds.playDeathSound();
                 if (!is_grounded) playerRb.AddForce(new Vector3(0, -0.5f, 0) * jumpForce, ForceMode.Impulse);
                 myAnim.Play("Dying Backwards");
                 in_anim = 425;

@@ -25,6 +25,7 @@ public class SoundEffects : MonoBehaviour
         playMusic.volume = 0.1f;
         coinSound.volume = 0.6f;
         warningSound.volume = 0.5f;
+        deathSound.volume = 0.4f;
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", 0.5f);
