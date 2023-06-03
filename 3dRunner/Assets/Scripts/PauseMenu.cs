@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject menuPausa;
     public PlayerMovement player;
+    public SoundEffects sounds;
 
     void Update()
     {
@@ -47,6 +48,7 @@ public class PauseMenu : MonoBehaviour
     public void canviEscena(string nomEscena)
     {
         SceneManager.LoadScene(nomEscena);
+        sounds.stopMusic();
         menuPausa.SetActive(false);
         Time.timeScale = 1f;
         jocParat = false;

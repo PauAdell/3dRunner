@@ -43,7 +43,7 @@ public class Management : MonoBehaviour
     {
         if (other.gameObject.tag == "moneda")
         {
-            other.gameObject.SendMessage("setVanishing");
+            other.gameObject.SendMessage( "setVanishing");
             monedas += 1;
             sounds.playCoinSound();
             if (monedas > topScore)
