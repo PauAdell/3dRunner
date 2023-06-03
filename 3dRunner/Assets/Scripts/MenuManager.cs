@@ -19,4 +19,11 @@ public class MenuManager : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("Screenmanager Resolution Height");
+        PlayerPrefs.DeleteKey("Screenmanager Resolution Width");
+        PlayerPrefs.DeleteKey("Screenmanager Is Fullscreen mode");
+    }
 }
