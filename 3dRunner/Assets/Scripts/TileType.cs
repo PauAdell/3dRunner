@@ -8,6 +8,7 @@ public class TileType : MonoBehaviour
     private float initial_speed;
     private bool canvitext;
     public Material novaTextura;
+    public ParticleSystem explosion;
 
     void Start()
     {
@@ -67,6 +68,9 @@ public class TileType : MonoBehaviour
                     if (!playerMovement.god_mode)
                     {
                         playerMovement.muerte = 2;
+                        Instantiate(explosion, other.gameObject.transform.position, other.gameObject.transform.rotation);
+                        other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                        other.gameObject.GetComponent<ParticleSystem>().Stop();
                         playerMovement.in_anim = 0;
                     }
                         break;
@@ -111,6 +115,7 @@ public class TileType : MonoBehaviour
         else if (other.CompareTag("Trap2")) if (!playerMovement.god_mode && playerMovement.muerte == 0)
             {
                 playerMovement.muerte = 2;
+                Instantiate(explosion, other.gameObject.transform.position, other.gameObject.transform.rotation);
                 playerMovement.in_anim = 0;
             }
         else if (other.CompareTag("BasicTile")) if (!playerMovement.girando) playerMovement.tile = 3;
