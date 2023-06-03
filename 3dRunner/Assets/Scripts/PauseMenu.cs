@@ -10,20 +10,25 @@ public class PauseMenu : MonoBehaviour
 
 
     public GameObject menuPausa;
+    public PlayerMovement player;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !jugadormort)
+        if (!player.menu_victoria)
         {
-            if (jocParat)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            if (Input.GetKeyDown(KeyCode.Escape) && !jugadormort)
+                    {
+                        if (jocParat)
+                        {
+                            Resume();
+                        }
+                        else
+                        {
+                            Pause();
+                        }
+                    }
         }
+        
     }
 
     public void Resume()

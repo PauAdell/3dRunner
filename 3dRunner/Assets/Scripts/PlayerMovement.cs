@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public bool salto_corto;
     public Material novaTextura;
     public bool victory;
-    bool menu_victoria;
+    public bool menu_victoria;
 
     private GameObject[] tilesdegiro;
     public GameObject menuMuerte;
