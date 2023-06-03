@@ -4,20 +4,52 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    Vector3 pos;
     public Transform target;
-    public float distance = 60.0f;
-    public float heightOffset = 40.0f;
-    public float cameraDelay = 0.02f;
+    public Transform target2;
+    public float distance;
+    public float heightOffset;
+    public float cameraDelay;
+    bool empieza;
+    Vector3 current;
+
+    public PlayerMovement playerMovement;
+
+    private void Start()
+    {
+        pos = transform.position;
+        current = target2.transform.position;
+        empieza = false;
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 forward = new Vector3(0f, 0f, 1f);
-        Vector3 followPos = target.position + forward * distance;
-        followPos.y += heightOffset;
-        followPos.x += distance;
-        transform.position += (followPos - transform.position);
-
-        transform.LookAt(target.transform);
+        Vector3 forward;
+        Vector3 followPos;
+        if (!playerMovement.start)
+        {
+            empieza = false;
+            forward = new Vector3(0f, 0f, 1f);
+            //followPos.y += heightOffset;
+            followPos = pos;
+            followPos.x += 5;
+            followPos.y += 5;
+            transform.position = followPos;
+            transform.LookAt(target2.transform);
+        }
+        else
+        {
+            forward = new Vector3(0f, 0f, 1f);
+            followPos = target.position + forward * distance;
+            followPos.y += heightOffset;
+            followPos.x += distance;
+            Vector3 pos_aux = transform.position + (followPos - transform.position);
+            if (!empieza) transform.position = Vector3.Lerp(transform.position, pos_aux, 0.01f);
+            else transform.position = pos_aux;
+            if (transform.position.z >= 16.5) empieza = true;
+            transform.LookAt(target.transform);
+        }
     }
 }
