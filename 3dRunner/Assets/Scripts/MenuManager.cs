@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    
+    public AudioSource menuMusic;
+    public void Start()
+    {
+        menuMusic.volume = 0.5f;
+        menuMusic.Play();
+    }
     public void canviEscena(string nomEscena) {
         SceneManager.LoadScene(nomEscena);
     }
